@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import angatLogo from './assets/img/logo.svg'
-import banner from './assets/img/banner.png'
+import angatLogo from '../assets/img/logo.svg'
+import banner from '../assets/img/banner.png'
 import viteLogo from '/vite.svg'
 // import './App.css'
 
