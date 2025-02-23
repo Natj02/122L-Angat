@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
+import Wrapper from "./pages/Wrapper";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 
-
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-     <BrowserRouter>
-      <Routes>
-        {/*Home*/}
-        <Route path="/" element={<Home />}/>
+      <BrowserRouter>
+        <Routes>
+          {/*Home*/}
+          <Route path="/" element={<Home />} />
 
-        {/*Register*/}
-        <Route path="/register" element={<Register />}/>
+          {/*Register*/}
+          <Route path="/register" element={<Register />} />
 
-        {/*Login*/}
-        <Route path="/login" element={<Login />}/>
+          {/*Login*/}
+          <Route path="/login" element={<Login />} />
 
-        {/*Dashboard*/}
-        <Route path="/dashboard" element={<Dashboard />}/>
-      </Routes>
-     </BrowserRouter>
+          {/*Dashboard*/}
+          <Route
+            path="/dashboard"
+            element={
+              <Wrapper>
+                <Dashboard />
+              </Wrapper>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App;

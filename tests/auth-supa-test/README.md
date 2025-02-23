@@ -1,8 +1,8 @@
-# React + Vite
+# Installations
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- npm i
+- npm i react-router react-router-dom
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Make Sure:
+- use real email, confirmation registrations are sent to email
+- app must run in localhost:5173

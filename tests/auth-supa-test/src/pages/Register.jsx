@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import supabase from "../helpers/supabaseClient";
 import { Link } from "react-router-dom";
 
-let min_pass = 6
-
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,20 +13,15 @@ function Register() {
   }
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    if (password.length < min_pass){
-        alert("Password must be 6 or more characters!")
-        clearInputs()
-        return
-    }
 
     setMessage("")
-    const {data, err} = await supabase.auth.signUp({
+    const {data, error} = await supabase.auth.signUp({
         email: email,
         password: password
     });
     
-    if (err) {
-        setMessage(err.message)
+    if (error) {
+        setMessage(error.message)
         return
     }
 
