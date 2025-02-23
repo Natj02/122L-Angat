@@ -11,7 +11,7 @@ function App() {
     <>
       <div className="w-full">
         {/* Navbar */}
-        <div class="navbar px-6 bg-base-100 shadow-sm sticky top-0 z-50">
+        <div class="navbar px-6 bg-primary shadow-sm sticky top-0 z-50 rounded-b-lg ">
           <div class="navbar-start">
             {/* Dropdown for mobile */}
             <div class="dropdown">
@@ -33,18 +33,20 @@ function App() {
               </ul>
             </div>
             {/* ////////////////////////// */}
-            <a class="btn btn-ghost text-xl h-16 w-16 p-0">
-                <img src={angatLogo}  alt="Angat Logo"/>
-            </a>
+            <div className='rounded-lg bg-base-100 p-1'>
+              <a class="btn btn-ghost text-xl h-16 w-16 p-0">
+                  <img src={angatLogo}  alt="Angat Logo"/>
+              </a>
+            </div>
+            
             <label className="input ml-4">
               <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
               <input type="search" className="grow" placeholder="Search" />
             </label>
           </div>
           <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-              <li>
-              </li>
+            <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2
+            [&_li>a:hover]:bg-secondary">
               <li><a>Home</a></li>
               <li><a>About Us</a></li>
               <li><a>Linkages</a></li>
@@ -53,7 +55,9 @@ function App() {
             </ul>
           </div>
           <div class="navbar-end">
-            <div className="flex gap-2">
+            <div className="flex gap-2
+            [&_a:hover]:bg-accent [&_a:hover]:text-secondary [&_a:hover]:border-secondary
+            [&_a]:bg-secondary [&_a]:text-base-100 [&_a]:border-accent [&_a]:border-2">
               <a class="btn">Sign In</a>
               <a class="btn">Register</a>
             </div>
@@ -62,7 +66,7 @@ function App() {
         </div>
         {/* //////////////////////// */}
         <div
-          class="hero min-h-160 justify-items-start items-end "
+          class="hero min-h-180 justify-items-start items-end absolute top-0"
           style={{
             backgroundImage: `url(${banner})`,
           }}>

@@ -3,6 +3,12 @@
   themes: light --default, dark --prefersdark, cmyk;
 }
 
+@plugin "daisyui/theme" {
+  name: "cmyk";
+  default: true;
+  --color-primary: #18c6d2;
+}
+
 @font-face {
   font-family: 'RedHat';
   src: url("./assets/fonts/RedHatDisplay-VariableFont_wght.ttf");
