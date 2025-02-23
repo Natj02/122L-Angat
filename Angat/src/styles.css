@@ -2,3 +2,12 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, cmyk;
 }
+
+@font-face {
+  font-family: 'RedHat';
+  src: url("./assets/fonts/RedHatDisplay-VariableFont_wght.ttf");
+}
+
+@theme {
+  --font-sans:  'RedHat', sans-serif;
+}
