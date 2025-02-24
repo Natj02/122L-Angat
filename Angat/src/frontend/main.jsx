@@ -8,6 +8,7 @@ import AboutUs from './AboutUs.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Landing /> */}
-    <Register />
+    {/* <Register /> */}
+    <Login/>
   </StrictMode>,
 )

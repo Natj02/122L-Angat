@@ -4,7 +4,7 @@ export default function Register() {
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">
-            <button onClick={() => window.history.back()} className="absolute top-4 left-4 px-4 py-2 bg-primary text-gray-700 rounded-lg hover:bg-gray-400 transition">
+            <button onClick={() => window.history.back()} className="absolute top-4 left-4 px-4 py-2 bg-primary text-gray-700 rounded-lg hover:bg-cyan-600 transition">
               ← Back
             </button>
         <div className="flex w-[80%] max-w-5xl bg-primary shadow-2xl rounded-3xl overflow-hidden">
@@ -23,19 +23,19 @@ export default function Register() {
               <input
                 type="text"
                 placeholder="Name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
               />
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
               />
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
               />
-              <button className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+              <button className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition">
                 Register
               </button>
             </div>
