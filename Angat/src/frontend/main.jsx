@@ -5,11 +5,13 @@ import Landing from './Landing.jsx'
 import Register from './register.jsx'
 import AboutUs from './AboutUs.jsx'
 import Login from './login.jsx'
+import ForgotPass from './forgotPass.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Landing /> */}
     {/* <Register /> */}
-    <Login/>
+    {/* <Login/> */}
+    <ForgotPass/>
   </StrictMode>,
 )
