@@ -8,6 +8,9 @@ import Login from './login.jsx'
 import ForgotPass from './forgotPass.jsx'
 import CreateNewPass from './CreateNewPass.jsx'
 import Linkages from './linkages.jsx'
+import ManageUsers from './ManageUsers.jsx'
+import News from './News.jsx'
+import PendingNews from './PendingNews.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +20,8 @@ createRoot(document.getElementById('root')).render(
     {/* <ForgotPass/> */}
     {/* <CreateNewPass/> */}
     {/* <AboutUs/> */}
-    <Linkages/>
+    {/* <ManageUsers/> */}
+    {/* <Linkages/> */}
+    <PendingNews/>
   </StrictMode>,
 )
