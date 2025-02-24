@@ -6,7 +6,7 @@ import Register from './register.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <Register />
+    <App />
+    {/* <Register /> */}
   </StrictMode>,
 )
