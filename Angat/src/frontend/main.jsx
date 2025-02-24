@@ -7,6 +7,7 @@ import AboutUs from './AboutUs.jsx'
 import Login from './login.jsx'
 import ForgotPass from './forgotPass.jsx'
 import CreateNewPass from './CreateNewPass.jsx'
+import Linkages from './linkages.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,6 +15,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Register /> */}
     {/* <Login/> */}
     {/* <ForgotPass/> */}
-    <CreateNewPass/>
+    {/* <CreateNewPass/> */}
+    {/* <AboutUs/> */}
+    <Linkages/>
   </StrictMode>,
 )

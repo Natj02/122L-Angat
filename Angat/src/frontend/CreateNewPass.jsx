@@ -1,6 +1,6 @@
 import angatLogo from '../assets/img/logo.svg';
 
-export default function Login() {
+export default function CreateNewPass() {
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">
