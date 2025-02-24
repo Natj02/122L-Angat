@@ -18,35 +18,30 @@ export default function Login() {
                       <img src={angatLogo} alt="Angat Logo"/> 
             </div>
 
-          {/* Right Section - Forgot Pass */}
+          {/* Right Section - Create New Password */}
           <div className="flex flex-col justify-center w-1/2 p-10 relative">
-            <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Forgot Password</h2>
+            <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Create New Password</h2>
 
             <div className="space-y-5">
               {/* Email */}
               <input
-                type="email"
-                placeholder="Email"
+                type="password"
+                placeholder="New password"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
               />
 
-              {/* 6-digit number */}
+              {/* Confirm */}
               <input
-                type="text"
-                placeholder="6-Digit Code"
+                type="password"
+                placeholder="Confirm new password"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
               />
 
 
-              {/* Send Code Button */}
+              {/* Reset Pass */}
               <button className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition">
-                Send Code
+                Reset Password
               </button>
-
-              {/* Resend code */}
-              <div className="text-sm items-center">
-                <a href="#" className="text-white hover:underline">Resend Code?</a>
-              </div>
 
               
             </div>
