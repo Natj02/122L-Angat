@@ -8,10 +8,10 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <> 
       <div className="w-full">
         {/* Navbar */}
-        <div class="navbar px-6 bg-primary shadow-sm sticky top-0 z-50 rounded-b-lg ">
+        <div class="navbar px-6 bg-primary shadow-sm sticky top-0 z-50  ">
           <div class="navbar-start">
             {/* Dropdown for mobile */}
             <div class="dropdown">
@@ -46,7 +46,8 @@ function App() {
           </div>
           <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2
-            [&_li>a:hover]:bg-secondary">
+            [&_li>a:hover]:bg-secondary
+            [&_li>a]:px-4">
               <li><a>Home</a></li>
               <li><a>About Us</a></li>
               <li><a>Linkages</a></li>
@@ -57,7 +58,7 @@ function App() {
           <div class="navbar-end">
             <div className="flex gap-2
             [&_a:hover]:bg-accent [&_a:hover]:text-secondary [&_a:hover]:border-secondary
-            [&_a]:bg-secondary [&_a]:text-base-100 [&_a]:border-accent [&_a]:border-2">
+            [&_a]:bg-secondary [&_a]:text-base-100 [&_a]:border-accent [&_a]:border-3">
               <a class="btn">Sign In</a>
               <a class="btn">Register</a>
             </div>
@@ -65,8 +66,9 @@ function App() {
           </div>
         </div>
         {/* //////////////////////// */}
+        {/* Hero Banner */}
         <div
-          class="hero min-h-180 justify-items-start items-end absolute top-0"
+          class="hero min-h-160 justify-items-start items-end "
           style={{
             backgroundImage: `url(${banner})`,
           }}>
@@ -80,8 +82,30 @@ function App() {
             </div>
           </div>
         </div>
+        {/* //////////////////////// */}
+        <div className='w-full p-16 bg-base-200   shadow-sm'>
+          <div className="m-auto    w-xl">
+            <div className="text-center text-4xl font-bold">
+              Insert Title
+            </div>
+            <div className='flex flex-row mt-8 gap-8 justify-center'>
+              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
+              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />  
+            </div>
+          </div>
+        </div>
 
-
+        <div className='w-full p-16 bg-secondary shadow-sm'>
+          <div className="m-auto    w-xl">
+            <div className="text-center text-4xl font-bold">
+              Insert Title
+            </div>
+            <div className='flex flex-row mt-8 gap-8 justify-center'>
+              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
+              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />  
+            </div>
+          </div>
+        </div>
         
       </div>
     </>

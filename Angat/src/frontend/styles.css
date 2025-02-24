@@ -7,13 +7,16 @@
   name: "cmyk";
   default: true;
   --color-primary: #18c6d2;
+  --color-base-200: #fffcf4;
+  --color-base-300: #fff4e4;
 }
 
 @font-face {
   font-family: 'RedHat';
-  src: url("./assets/fonts/RedHatDisplay-VariableFont_wght.ttf");
+  src: url("../assets/fonts/RedHatDisplay-VariableFont_wght.ttf");
 }
 
 @theme {
   --font-sans:  'RedHat', sans-serif;
 }
+
