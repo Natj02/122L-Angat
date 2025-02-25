@@ -11,11 +11,10 @@ import Linkages from './linkages.jsx'
 import ManageUsers from './ManageUsers.jsx'
 import News from './News.jsx'
 import PendingNews from './PendingNews.jsx'
-<<<<<<< Updated upstream
 import SuccessPage from './successPage.jsx'
-=======
 import Projects from './Projects.jsx'
->>>>>>> Stashed changes
+import ViewItem from './ViewItem.jsx'
+import PendingProjects from './PendingProjects.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,12 +26,11 @@ createRoot(document.getElementById('root')).render(
     {/* <AboutUs/> */}
     {/* <ManageUsers/> */}
     {/* <Linkages/> */}
-<<<<<<< Updated upstream
-    {/* <PendingNews/> */}
-    <SuccessPage/>
-=======
-    <Projects />
-    {/* <PendingNews/> */}
->>>>>>> Stashed changes
+    <PendingNews/>
+    {/* <SuccessPage/> */}
+    {/* <ViewItem /> */}
+    {/* <Projects /> */}
+    {/* <PendingProjects /> */}
+    {/* <News /> */}
   </StrictMode>,
 )

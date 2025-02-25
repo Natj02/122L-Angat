@@ -7,14 +7,13 @@ import Footer from './components/footer'
 import Project from './components/project'
 
 function Projects() {
-  const [count, setCount] = useState(0)
 
   return (
     <> 
       <div className="w-full  bg-base-300">
         {/* Navbar */}
         <Header />
-            <div className="w-4/5 px-16 py-10 mx-auto bg-base-200">
+            <div className="w-7/10 px-16 py-10 mx-auto bg-base-200">
                 <div className="flex flex-row justify-between">
                     <div className="text-3xl font-bold">
                         Projects

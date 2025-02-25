@@ -4,6 +4,7 @@ import banner from '../assets/img/banner.png'
 import './components/header'
 import Header from './components/header'
 import Footer from './components/footer'
+import PendingProject from './components/pendingproject'
 
 function PendingProjects() {
   const [count, setCount] = useState(0)
@@ -27,34 +28,10 @@ function PendingProjects() {
                 </div>
                 
                 <div className="flex flex-col pt-4 gap-4">
-                    <div className='flex flex-row gap-4 w-full items-center '>
-                        <div className="object-cover">
-                            <img className='max-h-none max-w-none w-32 h-32' src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
-                        </div>
-                        <div className='flex flex-col w-full'>
-                            <div className='font-bold text-2xl'>
-                                Project Title
-                            </div>
-                            <div className="font-bold text-sm">
-                                January 3
-                            </div>
-                            <div className="text-sm overflow-hidden text-ellipsis line-clamp-3 h-16">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. 
-                            </div>
-                        </div>
-                        <div className="flex flex-row gap-2">
-                            <div className='btn btn-primary'>
-                                Approve
-                            </div>
-                            <div className='btn btn-primary'>
-                                Reject
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    
-                    
+                    <PendingProject
+                    title="Project Title"
+                    date ="date"
+                    description = "fdfdfdfd"/>
                 </div>
              
             </div>
