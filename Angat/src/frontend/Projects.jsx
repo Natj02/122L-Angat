@@ -4,6 +4,7 @@ import banner from '../assets/img/banner.png'
 import './components/header'
 import Header from './components/header'
 import Footer from './components/footer'
+import Project from './components/project'
 
 function Projects() {
   const [count, setCount] = useState(0)
@@ -13,7 +14,7 @@ function Projects() {
       <div className="w-full  bg-base-300">
         {/* Navbar */}
         <Header />
-            <div className="w-5xl px-16 py-10 mx-auto bg-base-200">
+            <div className="w-4/5 px-16 py-10 mx-auto bg-base-200">
                 <div className="flex flex-row justify-between">
                     <div className="text-3xl font-bold">
                         Projects
@@ -29,39 +30,17 @@ function Projects() {
                 </div>
                 
                 <div className="flex flex-col pt-4 gap-4">
-                    <div className='flex flex-row gap-4 w-full'>
-                        <div className="object-cover">
-                            <img className='max-h-none max-w-none w-32 h-32' src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
-                        </div>
-                        <div className='flex flex-col w-full'>
-                            <div className='font-bold text-2xl'>
-                                Project Title
-                            </div>
-                            <div className="font-bold text-sm">
-                                January 3
-                            </div>
-                            <div className="text-sm overflow-hidden text-ellipsis line-clamp-3 h-16">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. 
-                            </div>
-                        </div>
-                    </div>
+                    <Project 
+                    title='Project Title'
+                    date='January 3'
+                    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. 
+                            '/>
 
-                    <div className='flex flex-row gap-4 w-full'>
-                        <div className="object-cover">
-                            <img className='max-h-none max-w-none w-32 h-32' src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
-                        </div>
-                        <div className='flex flex-col w-full'>
-                            <div className='font-bold text-2xl'>
-                                Project Title
-                            </div>
-                            <div className="font-bold text-sm">
-                                January 3
-                            </div>
-                            <div className="text-sm overflow-hidden text-ellipsis line-clamp-3 h-16">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. 
-                            </div>
-                        </div>
-                    </div>
+                    <Project 
+                    title='Project Title'
+                    date='January 3'
+                    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. 
+                            '/>         
                     
                     
                 </div>

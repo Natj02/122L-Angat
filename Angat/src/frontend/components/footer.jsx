@@ -5,7 +5,7 @@ import banner from '../../assets/img/banner.png'
 function Footer(){
     return (
         <>
-        <footer className="footer bg-primary text-base-content p-6 flex justify-between items-center px-50">
+        <footer className="footer sm:footer-horizontal bg-primary text-base-content p-6 flex justify-between items-center px-50">
             {/* Left Section - Logo & Description */}
             <div className='flex flex-row items-center'>
               <div className="h-12 w-12 rounded-lg bg-base-100 min-w-12 p-1">

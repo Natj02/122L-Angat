@@ -1,4 +1,4 @@
-import angatLogo from '../assets/img/logo.svg';
+import angatLogo from '../assets/img/logo.png';
 
 export default function forgotPass() {
   return (
@@ -24,18 +24,16 @@ export default function forgotPass() {
 
             <div className="space-y-5">
               {/* Email */}
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
-              />
+              <label className="input w-full validator">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <input type="email" placeholder="Email" required/>
+              </label>
+              <div class="validator-hint hidden">Enter valid email address</div>
 
               {/* 6-digit number */}
-              <input
-                type="text"
-                placeholder="6-Digit Code"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition bg-white"
-              />
+              <label className="input w-full">
+                <input type="input" placeholder="6-Digit Code" required/>
+              </label>
 
 
               {/* Send Code Button */}
