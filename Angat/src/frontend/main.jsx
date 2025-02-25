@@ -15,16 +15,17 @@ import SuccessPage from './successPage.jsx'
 import Projects from './Projects.jsx'
 import ViewItem from './ViewItem.jsx'
 import PendingProjects from './PendingProjects.jsx'
+import AddNewsProjects from './addNewsProject.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Landing />
-    {/* <Register />
-    <Login/>
-    <ForgotPass/>
-    <CreateNewPass/>
-    <AboutUs/>
-    <ManageUsers/> */}
+    {/* <Landing /> */}
+    {/* <Register /> */}
+    {/* <Login/> */}
+    {/* <ForgotPass/> */}
+    {/* <CreateNewPass/> */}
+    {/* <AboutUs/> */}
+    {/* <ManageUsers/> */}
     {/* <Linkages/> */}
     {/* <PendingNews/> */}
     {/* <SuccessPage/> */}
@@ -32,5 +33,7 @@ createRoot(document.getElementById('root')).render(
     {/* <Projects /> */}
     {/* <PendingProjects /> */}
     {/* <News /> */}
+    <AddNewsProjects/>
+
   </StrictMode>,
 )
