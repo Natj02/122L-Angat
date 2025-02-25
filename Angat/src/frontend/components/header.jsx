@@ -5,8 +5,8 @@ import banner from '../../assets/img/banner.png'
 function Header(){
     return (
         <>
-        <div class="navbar px-6 bg-primary shadow-sm sticky top-0 z-50  ">
-          <div class="navbar-start">
+        <div class="navbar px-6 bg-primary shadow-sm sticky -top-0 z-50  ">
+          <div class="navbar-start w-10/12 lg:w-1/2">
             {/* Dropdown for mobile */}
             <div class="dropdown">
               <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -14,26 +14,23 @@ function Header(){
               </div>
               <ul
                 tabindex="0"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li><a>Item 1</a></li>
-                <li>
-                  <a>Parent</a>
-                  <ul class="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                  </ul>
-                </li>
-                <li><a>Item 3</a></li>
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-88 p-2 shadow">
+                <li><a>Home</a></li>
+                <li><a>About Us</a></li>
+                <li><a>Linkages</a></li>
+                <li><a>Projects</a></li>
+                <li><a>News</a></li>
               </ul>
             </div>
-            {/* ////////////////////////// */}
-            <div className='rounded-lg bg-base-100 p-1'>
+            {/* Angat Logo */}
+            <div className='rounded-lg bg-base-100 p-1
+            ml-4'>
               <a class="btn btn-ghost text-xl h-16 w-16 p-0">
                   <img src={angatLogo}  alt="Angat Logo"/>
               </a>
             </div>
-            
-            <label className="input ml-4">
+            {/* ////////////////////////// */}
+            <label className="input ml-4 hidden sm:flex">
               <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
               <input type="search" className="grow" placeholder="Search" />
             </label>

@@ -32,11 +32,11 @@ function Landing() {
         </div>
         {/* //////////////////////// */}
         <div className='w-full p-16 bg-base-200   shadow-sm'>
-          <div className="m-auto    w-xl">
+          <div className="m-auto w-7/10">
             <div className="text-center text-4xl font-bold">
               Insert Title
             </div>
-            <div className='flex flex-row mt-8 gap-8 justify-center'>
+            <div className='flex flex-col md:flex-row mt-8 gap-8 justify-center'>
               <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
               <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />  
             </div>
@@ -44,13 +44,13 @@ function Landing() {
         </div>
 
         <div className='w-full p-16 bg-secondary shadow-sm'>
-          <div className="m-auto    w-xl">
+          <div className="m-auto w-7/10">
             <div className="text-center text-4xl font-bold">
               Insert Title
             </div>
             <div className='flex flex-row mt-8 gap-8 justify-center'>
-              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
-              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />  
+              {/* <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />
+              <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" alt="" />   */}
             </div>
           </div>
         </div>

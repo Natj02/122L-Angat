@@ -18,15 +18,15 @@ import PendingProjects from './PendingProjects.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <Landing /> */}
-    {/* <Register /> */}
-    {/* <Login/> */}
-    {/* <ForgotPass/> */}
-    {/* <CreateNewPass/> */}
-    {/* <AboutUs/> */}
-    {/* <ManageUsers/> */}
+    <Landing />
+    {/* <Register />
+    <Login/>
+    <ForgotPass/>
+    <CreateNewPass/>
+    <AboutUs/>
+    <ManageUsers/> */}
     {/* <Linkages/> */}
-    <PendingNews/>
+    {/* <PendingNews/> */}
     {/* <SuccessPage/> */}
     {/* <ViewItem /> */}
     {/* <Projects /> */}

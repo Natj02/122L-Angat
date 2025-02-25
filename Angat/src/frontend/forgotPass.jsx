@@ -14,12 +14,12 @@ export default function forgotPass() {
 
         <div className="flex w-[80%] max-w-5xl bg-primary shadow-2xl rounded-3xl overflow-hidden">
           {/* Left Section - Logo */}
-          <div className="flex flex-col items-center justify-center w-1/2 bg-gradient-to-r from-gray-300 to-gray-100 p-8">
+          <div className="flex flex-col hidden lg:flex items-center justify-center w-1/2 bg-gradient-to-r from-gray-300 to-gray-100 p-8">
                       <img src={angatLogo} alt="Angat Logo"/> 
             </div>
 
           {/* Right Section - Forgot Pass */}
-          <div className="flex flex-col justify-center w-1/2 p-10 relative">
+          <div className="flex flex-col justify-center w-full lg:w-1/2 p-10 relative">
             <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Forgot Password</h2>
 
             <div className="space-y-5">
