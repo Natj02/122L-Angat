@@ -11,6 +11,7 @@ import Linkages from './linkages.jsx'
 import ManageUsers from './ManageUsers.jsx'
 import News from './News.jsx'
 import PendingNews from './PendingNews.jsx'
+import SuccessPage from './successPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
     {/* <AboutUs/> */}
     {/* <ManageUsers/> */}
     {/* <Linkages/> */}
-    <PendingNews/>
+    {/* <PendingNews/> */}
+    <SuccessPage/>
   </StrictMode>,
 )
