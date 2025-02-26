@@ -21,7 +21,7 @@ import Base from './components/Base.jsx'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Base>
-      {/* <Landing /> */}
+      <Landing />
       {/* <AboutUs/> */}
       {/* <ManageUsers/> */}
       {/* <Linkages/> */}
@@ -30,7 +30,7 @@ createRoot(document.getElementById("root")).render(
       {/* <ViewItem /> */}
       {/* <Projects /> */}
       {/* <PendingProjects /> */}
-      <News />
+      {/* <News /> */}
       {/* <AddNewsProjects/> */}
     </Base>
     
