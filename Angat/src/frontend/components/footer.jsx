@@ -5,6 +5,7 @@ import banner from '../../assets/img/banner.png'
 function Footer(){
     return (
         <>
+        {/* <div className="self-end"> */}
         <footer class="footer sm:footer-horizontal bg-primary text-base-100 px-10 py-8">
         <aside className='grid-flow-col items-center self-center'>
           <div className='w-12 h-12 p-1 bg-base-100 rounded-lg'>
@@ -60,6 +61,8 @@ function Footer(){
           <p>Copyright {new Date().getFullYear()}. Angat Pinas Inc. All rights reserved.</p>
         </aside>
       </footer>
+        {/* </div> */}
+        
         </>)}
 
 export default Footer

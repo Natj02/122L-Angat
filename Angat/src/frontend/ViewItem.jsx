@@ -10,10 +10,7 @@ function ViewItem() {
 
   return (
     <> 
-      <div className="w-full  bg-base-300">
-        {/* Navbar */}
-        <Header />
-            <div className="w-4/5 px-16 py-10 mx-auto bg-base-200">
+            <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
                 <img src={banner} alt="" />
                 <div className="w-full pt-4">
                     <div className="text-sm">
@@ -27,8 +24,6 @@ function ViewItem() {
                     </div>
                 </div>
             </div>
-        <Footer />
-      </div>
 
           
 

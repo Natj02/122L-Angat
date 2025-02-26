@@ -11,10 +11,7 @@ function PendingProjects() {
 
   return (
     <> 
-      <div className="w-full  bg-base-300">
-        {/* Navbar */}
-        <Header />
-            <div className="w-7/10 px-16 py-10 mx-auto bg-base-200">
+        <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
                 <div className="flex flex-row justify-between ">
                     <div className="text-3xl font-bold">
                         Pending Projects
@@ -31,12 +28,14 @@ function PendingProjects() {
                     <PendingProject
                     title="Project Title"
                     date ="date"
-                    description = "fdfdfdfd"/>
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Morbi fermentum consectetur vestibulum. Etiam elementum porttitor mi eu rutrum. Duis ut varius ex, at egestas augue. Aenean dui ligula, mattis a mi eget, egestas dictum velit. Aliquam a arcu nec tortor imperdiet efficitur."/>
+
+                    
+                    
+                    
                 </div>
              
             </div>
-        <Footer />
-      </div>
 
           
 

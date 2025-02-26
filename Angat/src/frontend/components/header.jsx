@@ -14,7 +14,7 @@ function Header(){
               </div>
               <ul
                 tabindex="0"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-88 p-2 shadow">
+                class="menu menu-sm dropdown-content bg-base-100 rounded-b-lg z-1 mt-6 w-88 p-2 shadow">
                 <li><a>Home</a></li>
                 <li><a>About Us</a></li>
                 <li><a>Linkages</a></li>

@@ -10,10 +10,7 @@ function Projects() {
 
   return (
     <> 
-      <div className="w-full  bg-base-300">
-        {/* Navbar */}
-        <Header />
-            <div className="w-7/10 px-16 py-10 mx-auto bg-base-200">
+            <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
                 <div className="flex flex-row justify-between">
                     <div className="text-3xl font-bold">
                         Projects
@@ -45,8 +42,6 @@ function Projects() {
                 </div>
              
             </div>
-        <Footer />
-      </div>
 
           
 

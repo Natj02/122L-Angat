@@ -11,9 +11,6 @@ function Landing() {
 
   return (
     <> 
-      <div className="w-full">
-        {/* Navbar */}
-        <Header />
         {/* Hero Banner */}
         <div
           class="hero min-h-160 justify-items-start items-end "
@@ -54,13 +51,6 @@ function Landing() {
             </div>
           </div>
         </div>
-        
-
-        <Footer />
-      </div>
-
-          
-
     </>
   )
 }

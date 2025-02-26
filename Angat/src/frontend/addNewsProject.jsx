@@ -4,11 +4,9 @@ import Footer from './components/footer';
 function AddNewsProject() {
   return (
     <> 
-      <div className="w-full bg-base-300 min-h-screen flex flex-col">
-        <Header />
+      <div className="w-full bg-base-300 ">
 
-        {/* Centered Container */}
-        <div className="flex-grow flex justify-center items-center">
+        <div className="flex-grow flex justify-center items-center my-8">
           <div className="max-w-2xl w-full bg-primary p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">Add News / Project</h2>
             
@@ -54,8 +52,6 @@ function AddNewsProject() {
           </div>
         </div>
 
-        {/* Footer stays at the bottom */}
-        <Footer />
       </div>
     </>
   );

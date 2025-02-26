@@ -10,17 +10,16 @@ function Linkages() {
 
   return (
     <> 
-      <div className="w-full bg-base-300">
-        <Header />
+    <div className='w-full bg-base-300'>
 
-         {/* Main Content */}
+    
          <div className="w-[90%] max-w-6xl mx-auto my-10">
           {/* Three Columns for Partner, Contribute, Volunteer */}
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-flow-row lg:grid-flow-col gap-8">
             
             {/* Partner Section */}
             <div className="bg-gray-100 p-6 shadow-md rounded-lg">
-              <div className="w-full h-48 bg-gray-400 flex items-center justify-center">
+              <div className="w-full bg-gray-400 flex items-center justify-center">
                 <img src={banner} alt="Contribute" />
               </div>
               <h3 className="text-lg font-semibold mt-4 text-center">Partner</h3>
@@ -31,7 +30,7 @@ function Linkages() {
 
             {/* Contribute Section */}
             <div className="bg-gray-100 p-6 shadow-md rounded-lg">
-              <div className="w-full h-48 bg-gray-400 flex items-center justify-center">
+              <div className="w-full bg-gray-400 flex items-center justify-center">
               <img src={banner} alt="Contribute" />
               </div>
               <h3 className="text-lg font-semibold mt-4 text-center">Contribute</h3>
@@ -42,7 +41,7 @@ function Linkages() {
 
             {/* Volunteer Section */}
             <div className="bg-gray-100 p-6 shadow-md rounded-lg">
-              <div className="w-full h-48 bg-gray-400 flex items-center justify-center">
+              <div className="w-full bg-gray-400 flex items-center justify-center">
                 <img src={banner} alt="Contribute" />
               </div>
               <h3 className="text-lg font-semibold mt-4 text-center">Volunteer</h3>
@@ -85,7 +84,7 @@ function Linkages() {
 
             
 
-            <hr className="my-10 border-black border-1" />
+            <div className="divider divider-primary"></div>
 
             {/* QR Code Section */}
             <div className="flex justify-center">
@@ -106,13 +105,7 @@ function Linkages() {
             </div>
 
         </div>
-        
-        
-        <Footer />
-      </div>
-
-          
-
+        </div>
     </>
   )
 }
