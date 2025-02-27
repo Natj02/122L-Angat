@@ -53,9 +53,9 @@ function Header() {
             className="rounded-lg bg-base-100 p-1
             ml-4"
           >
-            <a class="btn btn-ghost text-xl h-16 w-16 p-0">
+            <Link to="/" className="btn btn-ghost text-xl h-16 w-16 p-0">
               <img src={angatLogo} alt="Angat Logo" />
-            </a>
+            </Link>
           </div>
           {/* ////////////////////////// */}
           <label className="input ml-4 hidden sm:flex">
@@ -79,25 +79,31 @@ function Header() {
           </label>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <ul
-            class="menu menu-horizontal px-1 text-base-100 font-bold gap-2
-            [&_li>a:hover]:bg-secondary
-            [&_li>a]:px-4"
-          >
+          <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2">
             <li>
-              <a>Home</a>
+              <Link to="/" className="bg-secondary px-4">
+                Home
+              </Link>
             </li>
             <li>
-              <a>About Us</a>
+              <Link to="/about" className="bg-secondary px-4">
+                About Us
+              </Link>
             </li>
             <li>
-              <a>Linkages</a>
+              <Link to="/linkages" className="bg-secondary px-4">
+                Linkages
+              </Link>
             </li>
             <li>
-              <a>Projects</a>
+              <Link to="/projects" className="bg-secondary px-4">
+                Projects
+              </Link>
             </li>
             <li>
-              <a>News</a>
+              <Link to="/news" className="bg-secondary px-4">
+                News
+              </Link>
             </li>
           </ul>
         </div>

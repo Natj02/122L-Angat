@@ -39,12 +39,9 @@ const PrivateRoute = ({ allowedRoles }) => {
   if (loading) return <p>Loading...</p>;
 
   // If no user is logged in, redirect to login
-  if (!user) return <Navigate to="/login" />;
-
   // If there are allowed roles and the user's role is not in the list, redirect to unauthorized
-  if (allowedRoles && !allowedRoles.includes(userRole)) {
-    return <Navigate to="/register" />;
-  }
+  if (!user || (allowedRoles && !allowedRoles.includes(userRole))) return <Navigate to="/" />;
+
 
   // User is logged in and has the required role, render the protected content
   return <Outlet />;

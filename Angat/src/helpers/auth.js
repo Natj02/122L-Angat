@@ -38,3 +38,11 @@ export const getCurrentUser = async () => {
     const { data: { user } } = await supabase.auth.getUser();
     return user;
 };
+
+// Update User Password
+export const updatePassword = async (pass) => {
+    const { data, error } = await supabase.auth.updateUser({
+        password: pass
+    })
+    return { error };
+}

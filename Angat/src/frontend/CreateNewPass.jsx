@@ -1,6 +1,21 @@
 import angatLogo from '../assets/img/logo.png';
+import { updatePassword } from "../helpers/auth"
+import { useState } from "react";
 
 export default function CreateNewPass() {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+
+  const handleUpdatePass = async (pass) => {
+    const { error } = await updatePassword(pass)
+    if (error) {
+      setError(error.message);
+    } else {
+      navigate("/success-page");
+    }
+  }
+
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">
@@ -17,7 +32,7 @@ export default function CreateNewPass() {
           <div className="flex flex-col hidden lg:flex items-center justify-center w-1/2 bg-gradient-to-r from-gray-300 to-gray-100 p-8">
                       <img src={angatLogo} alt="Angat Logo"/> 
             </div>
-
+          {error && <p className="text-red-500 text-center">{error}</p>}
           {/* Right Section - Create New Password */}
           <div className="flex flex-col justify-center w-full lg:w-1/2 p-10 relative">
             <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Create New Password</h2>
@@ -26,7 +41,7 @@ export default function CreateNewPass() {
               {/* Email */}
               <label className="input w-full validator">
                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <input type="password" required placeholder="New Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
+                <input type="password" onChange={(e) => setPassword(e.target.value)} required placeholder="New Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
               </label>
               <p class="validator-hint hidden">
                 Must be more than 8 characters, including
@@ -46,7 +61,7 @@ export default function CreateNewPass() {
 
 
               {/* Reset Pass */}
-              <button className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition">
+              <button onClick={handleUpdatePass(password)} className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition">
                 Reset Password
               </button>
 

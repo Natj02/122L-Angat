@@ -1,6 +1,13 @@
 import angatLogo from '../assets/img/logo.svg';
+import { getCurrentUser } from '../helpers/auth';
 
 export default function SuccessPage(props) {
+  const dd = async () => {
+    console.log(await getCurrentUser())
+  }
+
+  dd()
+  
   let message = '';
   let secondary = '';
   if (props.type === 'passwordChanged') {
