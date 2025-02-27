@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import Landing from "./Landing.jsx";
 import Register from "./Register.jsx";
 import AboutUs from "./AboutUs.jsx";
-import Login from "./Login.jsx";
+import Login from "./login.jsx";
 import ForgotPass from "./ForgotPass.jsx";
 import CreateNewPass from "./CreateNewPass.jsx";
 import Linkages from "./linkages.jsx";

@@ -1,11 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import angatLogo from "../../assets/img/logo.svg";
-import banner from "../../assets/img/banner.png";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getCurrentUser } from "../../helpers/auth";
+import  Profile  from "./Profile";
 
 function Header() {
+  const [userInitials, setUserInitials] = useState("");
+  const [authN, setAuthN] = useState(true);
+  const loc = useLocation()
+  useEffect(() => {
+    const fetchUserInitials = async () => {
+      setAuthN(true);
+      try {
+
+        const userData = await getCurrentUser();
+        if (userData && userData.user_metadata && userData.user_metadata.username) {
+          
+          setUserInitials(userData.user_metadata.username.slice(0, 2).toUpperCase());
+        }else{
+          setAuthN(false);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setAuthN(false);
+      }
+    };
+    fetchUserInitials();
+  }, [loc]);
+  console.log(authN)
   return (
     <>
+    
       <div class="navbar px-6 bg-primary shadow-sm sticky -top-0 z-50  ">
         <div class="navbar-start w-10/12 lg:w-1/2">
           {/* Dropdown for mobile */}
@@ -32,19 +58,29 @@ function Header() {
               class="menu menu-sm dropdown-content bg-base-100 rounded-b-lg z-1 mt-6 w-88 p-2 shadow"
             >
               <li>
-                <a>Home</a>
+                <Link to="/">
+                  Home
+                </Link>
               </li>
               <li>
-                <a>About Us</a>
+                <Link to="/about">
+                  About Us
+                </Link>
               </li>
               <li>
-                <a>Linkages</a>
+                <Link to="/linkages">
+                  Linkages
+                </Link>
               </li>
               <li>
-                <a>Projects</a>
+                <Link to="/projects">
+                  Projects
+                </Link>
               </li>
               <li>
-                <a>News</a>
+                <Link to="/news">
+                  News
+                </Link>
               </li>
             </ul>
           </div>
@@ -108,7 +144,7 @@ function Header() {
           </ul>
         </div>
         <div class="navbar-end">
-          <div className="flex gap-2">
+          {authN ? (<Profile userInitials={userInitials}/>) : (<div className="flex gap-2">
             <Link
               to="/register"
               className="bg-secondary text-base-100 border-3 border-accent hover:bg-accent hover:text-secondary hover:border-secondary px-4 py-2 rounded"
@@ -121,7 +157,8 @@ function Header() {
             >
               Sign In
             </Link>
-          </div>
+          </div>)}
+
         </div>
       </div>
     </>

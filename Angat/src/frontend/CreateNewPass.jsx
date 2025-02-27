@@ -3,9 +3,6 @@ import { updatePassword } from "../helpers/auth"
 import { useState } from "react";
 
 export default function CreateNewPass() {
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
 
   const handleUpdatePass = async (pass) => {
     const { error } = await updatePassword(pass)

@@ -27,11 +27,6 @@ export default function Login() {
   const resetRedirect = async (email) => {
     const userData = await getCurrentUser();
 
-    if (userData.email !== email) {
-      setError("Invalid email address");
-      return;
-    }
-
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "http://localhost:5173/create-pass",
     });
