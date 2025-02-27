@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import angatLogo from "../../assets/img/logo.svg";
-import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { getCurrentUser } from "../../helpers/auth";
 import  Profile  from "./Profile";
+import { useAuth } from '../../helpers/AuthContext';
 
 function Header() {
-  const [userInitials, setUserInitials] = useState("");
-  const [authN, setAuthN] = useState(true);
+  const { user } = useAuth();
+  /*
   const loc = useLocation()
   useEffect(() => {
     const fetchUserInitials = async () => {
@@ -28,7 +27,10 @@ function Header() {
     };
     fetchUserInitials();
   }, [loc]);
-  console.log(authN)
+  console.log(authN)*/
+    const userInitials = user?.user_metadata?.username
+    ? user.user_metadata.username.slice(0, 2).toUpperCase()
+    : '';
   return (
     <>
     
@@ -144,7 +146,7 @@ function Header() {
           </ul>
         </div>
         <div class="navbar-end">
-          {authN ? (<Profile userInitials={userInitials}/>) : (<div className="flex gap-2">
+          {user ? (<Profile userInitials={userInitials}/>) : (<div className="flex gap-2">
             <Link
               to="/register"
               className="bg-secondary text-base-100 border-3 border-accent hover:bg-accent hover:text-secondary hover:border-secondary px-4 py-2 rounded"
