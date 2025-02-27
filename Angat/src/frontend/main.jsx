@@ -18,11 +18,13 @@ import PendingProjects from "./PendingProjects.jsx";
 import AddNewsProjects from "./addNewsProject.jsx";
 import Base from "./components/Base.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateRoute from "../helpers/PrivateRoute.jsx"; 
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-    <Routes>
+      <Routes>
         <Route path="/" element={<Base />}>
           <Route index element={<Landing />} />
           <Route path="register" element={<Register />} />
@@ -30,15 +32,22 @@ createRoot(document.getElementById("root")).render(
           <Route path="forgot-pass" element={<ForgotPass />} />
           <Route path="create-pass" element={<CreateNewPass />} />
           <Route path="about" element={<AboutUs />} />
-          <Route path="manage-user" element={<ManageUsers />} />
+
+          <Route element={<PrivateRoute allowedRoles={["admin"]} />}>
+            <Route path="manage-user" element={<ManageUsers />} />
+            <Route path="pending-news" element={<PendingNews />} />
+            <Route path="pending-projects" element={<PendingProjects />} />
+          </Route>
+
+          <Route element={<PrivateRoute allowedRoles={["admin", "user"]} />}>
+            <Route path="add-news" element={<AddNewsProjects />} />
+          </Route>
+
           <Route path="linkages" element={<Linkages />} />
-          <Route path="pending-news" element={<PendingNews />} />
           <Route path="success-page" element={<SuccessPage />} />
           <Route path="view-item" element={<ViewItem />} />
           <Route path="projects" element={<Projects />} />
-          <Route path="pending-projects" element={<PendingProjects />} />
           <Route path="news" element={<News />} />
-          <Route path="add-news" element={<AddNewsProjects />} />
         </Route>
       </Routes>
     </BrowserRouter>
