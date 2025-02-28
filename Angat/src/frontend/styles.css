@@ -20,3 +20,6 @@
   --font-sans:  'RedHat', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}

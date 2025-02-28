@@ -4,16 +4,17 @@ import banner from '../assets/img/banner.png'
 import './components/header'
 import Header from './components/header'
 import Footer from './components/footer'
+import donate from '../assets/img/donate.jpg'
 
 function Linkages() {
   const [count, setCount] = useState(0)
 
   return (
     <> 
-    <div className='w-full bg-base-300'>
+    <div className='w-full bg-base-300' class="scroll-smooth">
 
     
-         <div className="w-[90%] max-w-6xl mx-auto my-10">
+         <div className="w-[90%] max-w-9xl mx-auto my-10">
           {/* Three Columns for Partner, Contribute, Volunteer */}
           <div className="grid grid-flow-row lg:grid-flow-col gap-8">
             
@@ -22,7 +23,7 @@ function Linkages() {
               <div className="w-full bg-gray-400 flex items-center justify-center">
                 <img src={banner} alt="Contribute" />
               </div>
-              <h3 className="text-lg font-semibold mt-4 text-center">Partner</h3>
+              <a class="email-link" href="mailto:angatcembo.org@gmail.com" target = "_blank" rel="noreferrer"><h3 className="text-2xl font-semibold mt-4 text-center">Partner</h3></a>
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Join us as a partner and help expand our impact.
               </p>
@@ -33,7 +34,7 @@ function Linkages() {
               <div className="w-full bg-gray-400 flex items-center justify-center">
               <img src={banner} alt="Contribute" />
               </div>
-              <h3 className="text-lg font-semibold mt-4 text-center">Contribute</h3>
+              <a href="#donation"><h3 className="text-2xl font-semibold mt-4 text-center">Contribute</h3></a>
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Support our cause through contributions and donations.
               </p>
@@ -44,65 +45,97 @@ function Linkages() {
               <div className="w-full bg-gray-400 flex items-center justify-center">
                 <img src={banner} alt="Contribute" />
               </div>
-              <h3 className="text-lg font-semibold mt-4 text-center">Volunteer</h3>
+              <a class="email-link" href="mailto:angatcembo.org@gmail.com" target = "_blank" rel="noreferrer"><h3 className="text-2xl font-semibold mt-4 text-center">Volunteer</h3></a>
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Be a part of our mission by volunteering your time and skills.
               </p>
             </div>
 
           </div>
-
           {/* How to Donate Instructions */}
           <div className="text-left mt-12 px-8">
-                <h2 className="mt-4 text-gray-700 space-y-2">
+                <h2 className="mt-15 text-gray-700 space-y-2 text-xl mb-10 flex justify-center">
                 <strong>
-                Lorem ipsum dolor sit amet. Cum blanditiis velit et soluta galisum aut enim possimus nam quae quisquam qui magnam asperiores a rerum omnis. Quo commodi ducimus ea vero consectetur ut odio molestiae est dolore quod in fuga tempora. Et consequatur placeat nam voluptatem provident ut accusantium quia.
+                We, the Angat Cembo Community Inc., are a non-government organization based in
+                Cembo, Taguig City that aims to help, serve, and uplift our fellow people by empowering them
+                towards becoming active citizens of the Cembo community advocating for volunteerism and
+                social welfare.           
                 </strong>
                 </h2>
             </div>
 
           {/* Additional Content - Centered */}
+          
             <div className="text-center my-16">
             {/* Donation Header */}
-            <h2 className="text-lg font-semibold text-pink-600">Thank you for supporting our cause!</h2>
+            <h2 className="text-3xl font-semibold text-pink-600 mb-20 mt-20">Thank you for supporting our cause!</h2>
+            
 
             {/* Donation Methods Tabs */}
+            <section id="donation">
             <div className="flex justify-center mt-4 space-x-4">
-                <button className="px-4 py-2 bg-cyan-900 text-white font-semibold rounded-md">
+                <button className="px-5 py-3 bg-cyan-900 text-white font-semibold rounded-md text-3xl">
                 GCash
                 </button>
-                <button className="px-4 py-2 border border-primary text-gray-800 font-semibold rounded-md hover:bg-primary bg-base-200">
+                <button className="px-5 py-3 border border-primary text-gray-800 font-semibold rounded-md hover:bg-primary bg-base-200 text-3xl">
                 Bank Transfer
                 </button>
-                <button className="px-4 py-2 border border-primary text-gray-800 font-semibold rounded-md hover:bg-primary bg-base-200">
-                Lorem Ipsum
-                </button>
-                <button className="px-4 py-2 border border-primary text-gray-800 font-semibold rounded-md hover:bg-primary bg-base-200">
-                Lorem Ipsum
-                </button>
             </div>
+            </section>
 
             
 
             <div className="divider divider-primary"></div>
 
             {/* QR Code Section */}
+           
             <div className="flex justify-center">
                 <div className="bg-teal-500 p-6 rounded-lg">
-                <img src={banner} alt="QR Code" className="w-64 h-64 mx-auto" />
+                <img src={donate} alt="QR Code" className="w-100 h-100 mx-auto" />
                 </div>
             </div>
+            
 
             {/* How to Donate Instructions */}
             <div className="text-left mt-12 px-8">
-                <h3 className="text-xl font-bold text-pink-600 text-center">How to Donate via GCash QR Code</h3>
-                <h2 className="mt-4 text-gray-700 space-y-2">
+                <h3 className="mt-10 text-3xl font-bold text-pink-600 text-center">How to Donate via GCash QR Code</h3>
+                <h2 className="mt-15 text-gray-700 space-y-2 flex justify-center text-xl mb-10">
                 <strong>
-                Lorem ipsum dolor sit amet. Cum blanditiis velit et soluta galisum aut enim possimus nam quae quisquam qui magnam asperiores a rerum omnis. Quo commodi ducimus ea vero consectetur ut odio molestiae est dolore quod in fuga tempora. Et consequatur placeat nam voluptatem provident ut accusantium quia.
+                  <ul>
+                    <li>
+                    1. Open the GCash app and log in using your PIN or biometric authentication.
+                    </li>
+                    <li>
+                    2. Tap the "QR" icon on the home screen.
+                    </li>
+                    <li>
+                    3. Choose "Scan QR Code" to use your phone's camera to scan the QR code displayed in front.
+                    </li>
+                    <li>
+                    4. Align your phone’s camera with the QR code to scan it.
+                    </li>
+                    <li>
+                    5. Enter the amount you want to pay or donate.
+                    </li>
+                    <li>
+                    6. Tap "Next" and review the transaction details.
+                    </li>
+                    <li>
+                    7. Confirm the payment by tapping "Pay" or "Confirm".
+                    </li>
+                    <li>
+                    8. Receive an SMS confirmation and an in-app receipt for proof of payment.
+                    </li>
+                    <li>
+                    9. Take a screenshot of the receipt if needed for future reference.
+                    </li>
+                  </ul>                
                 </strong>
                 </h2>
             </div>
-            </div>
+
+            <div className="divider divider-primary"></div>
+          </div>
 
         </div>
         </div>
