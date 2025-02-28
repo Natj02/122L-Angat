@@ -5,10 +5,12 @@ import './components/header'
 import Header from './components/header'
 import Footer from './components/footer'
 import NewsItem from './components/newsitem'
+import { useAuth } from '../helpers/AuthContext';
+import { Link } from "react-router-dom";
 
 function News() {
   const [count, setCount] = useState(0)
-
+  const { user, userRole, loading } = useAuth();
   return (
     <> 
             <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
@@ -17,12 +19,12 @@ function News() {
                         News
                     </div>
                     <div className='flex gap-2'>
-                        <div className='btn btn-primary'>
+                        {(userRole && (userRole==="admin" || userRole==="user")) && <Link to="/add-content" className='btn btn-primary'>
                             Add
-                        </div>
-                        <div className='btn btn-primary'>
+                        </Link>}
+                        {(userRole && userRole==="admin") && <Link to="/pending-news" className='btn btn-primary'>
                             Pending
-                        </div>
+                        </Link>}
                     </div>
                 </div>
                 

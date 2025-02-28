@@ -42,7 +42,7 @@ createRoot(document.getElementById("root")).render(
             </Route>
 
             <Route element={<PrivateRoute allowedRoles={["admin", "user"]} />}>
-              <Route path="add-news" element={<AddNewsProjects />} />
+              <Route path="add-content" element={<AddNewsProjects />} />
             </Route>
 
             <Route path="linkages" element={<Linkages />} />

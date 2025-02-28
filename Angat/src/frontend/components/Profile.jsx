@@ -1,7 +1,10 @@
 import { signOut } from "../../helpers/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../../helpers/AuthContext';
+import { Link } from "react-router-dom";
 
-const Profile = ({ userInitials }) => {
+const Profile = ({ username, userRole }) => {
+    const userInitials = username.slice(0, (username.length >= 2)?2:1).toUpperCase();
     const navigate = useNavigate();
     const handleLogOut = async () => {
         await signOut();
@@ -20,6 +23,8 @@ const Profile = ({ userInitials }) => {
             <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                <h1 className="p-2 text-lg">{`Hello, ${username}`}</h1>
+                {userRole==="admin" && <li><Link to="/manage-user">Manage Users</Link></li>}
                 <li>
                     <a className="justify-between">
                         Profile

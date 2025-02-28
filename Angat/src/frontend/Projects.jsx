@@ -5,8 +5,11 @@ import './components/header'
 import Header from './components/header'
 import Footer from './components/footer'
 import Project from './components/project'
+import { Link } from "react-router-dom";
+import { useAuth } from '../helpers/AuthContext';
 
 function Projects() {
+  const { user, userRole, loading } = useAuth();
 
   return (
     <> 
@@ -16,12 +19,13 @@ function Projects() {
                         Projects
                     </div>
                     <div className='flex gap-2'>
-                        <div className='btn btn-primary'>
+                        {(userRole && (userRole==="admin" || userRole==="user")) &&
+                        <Link to="/add-content" className='btn btn-primary'>
                             Add
-                        </div>
-                        <div className='btn btn-primary'>
+                        </Link>}
+                        {(userRole && userRole==="admin") && <Link to="/pending-projects" className='btn btn-primary'>
                             Pending
-                        </div>
+                        </Link>}
                     </div>
                 </div>
                 

@@ -5,7 +5,7 @@ import  Profile  from "./Profile";
 import { useAuth } from '../../helpers/AuthContext';
 
 function Header() {
-  const { user } = useAuth();
+  const { user, userRole, loading } = useAuth();
   /*
   const loc = useLocation()
   useEffect(() => {
@@ -28,9 +28,7 @@ function Header() {
     fetchUserInitials();
   }, [loc]);
   console.log(authN)*/
-    const userInitials = user?.user_metadata?.username
-    ? user.user_metadata.username.slice(0, 2).toUpperCase()
-    : '';
+  const userName =  user?.user_metadata?.username ?? "";
   return (
     <>
     
@@ -148,7 +146,7 @@ function Header() {
           </ul>
         </div>
         <div class="navbar-end">
-          {user ? (<Profile userInitials={userInitials}/>) : (<div className="flex gap-2 
+          {user ? (<Profile username={userName} userRole={userRole}/>) : (<div className="flex gap-2 
           [&_a:hover]:bg-accent [&_a:hover]:text-secondary [&_a:hover]:border-secondary
           [&_a]:bg-secondary [&_a]:text-base-100 [&_a]:border-accent [&_a]:border-3">
             <Link
