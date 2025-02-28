@@ -117,45 +117,51 @@ function Header() {
           </label>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2">
+          <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2
+          [&_li>a:hover]:bg-secondary
+          [&_li>a]:px-4">
             <li>
-              <Link to="/" className="bg-secondary px-4">
+              <Link to="/" className="px-4">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" className="bg-secondary px-4">
+              <Link to="/about" className="px-4">
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="/linkages" className="bg-secondary px-4">
+              <Link to="/linkages" className="px-4">
                 Linkages
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="bg-secondary px-4">
+              <Link to="/projects" className="px-4">
                 Projects
               </Link>
             </li>
             <li>
-              <Link to="/news" className="bg-secondary px-4">
+              <Link to="/news" className="px-4">
                 News
               </Link>
             </li>
           </ul>
         </div>
         <div class="navbar-end">
-          {user ? (<Profile userInitials={userInitials}/>) : (<div className="flex gap-2">
+          {user ? (<Profile userInitials={userInitials}/>) : (<div className="flex gap-2 
+          [&_a:hover]:bg-accent [&_a:hover]:text-secondary [&_a:hover]:border-secondary
+          [&_a]:bg-secondary [&_a]:text-base-100 [&_a]:border-accent [&_a]:border-3">
             <Link
               to="/register"
-              className="bg-secondary text-base-100 border-3 border-accent hover:bg-accent hover:text-secondary hover:border-secondary px-4 py-2 rounded"
+              className="btn hover:bg-accent hover:text-secondary hover:border-secondary
+              bg-secondary text-base-100 border-accent border-3"
             >
               Register
             </Link>
             <Link
               to="/login"
-              className="bg-secondary text-base-100 border-3 border-accent hover:bg-accent hover:text-secondary hover:border-secondary px-4 py-2 rounded"
+              className="btn hover:bg-accent hover:text-secondary hover:border-secondary
+              bg-secondary text-base-100 border-accent border-3"
             >
               Sign In
             </Link>
