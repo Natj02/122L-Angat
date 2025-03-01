@@ -24,16 +24,24 @@ export default function Login() {
     }
   };
 
-  const resetRedirect = async (email) => {
-    const userData = await getCurrentUser();
-
+  const resetRedirect = async () => {
+    setError(null);
+    if (!email) {
+      setError("Please enter your email to reset password.");
+      return;
+    }
+  
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "http://localhost:5173/create-pass",
+      redirectTo: "http://localhost:5173/create-pass", // Make sure this URL is correct
     });
+  
     if (error) {
       setError(error.message);
+    } else {
+      alert("Password reset link has been sent to your email.");
     }
   };
+  
 
   return (
     <>

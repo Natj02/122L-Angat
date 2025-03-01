@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // import './index.css'
 import Landing from "./Landing.jsx";
-import Register from "./Register.jsx";
+import Register from "./register.jsx";
 import AboutUs from "./AboutUs.jsx";
 import Login from "./login.jsx";
 import ForgotPass from "./ForgotPass.jsx";
