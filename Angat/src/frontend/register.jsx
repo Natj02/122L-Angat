@@ -13,12 +13,12 @@ export default function Register() {
     const handleSignUp = async (e) => {
         e.preventDefault();
         setError(null);
-
+        localStorage.setItem("pending_email", email);
         const { error } = await signUp(email, password, username);
         if (error) {
             setError(error.message);
         } else {
-            navigate("/login");
+            navigate("/confirm-email");
         }
     };
 

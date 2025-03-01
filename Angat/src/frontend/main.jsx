@@ -20,7 +20,7 @@ import Base from "./components/Base.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "../helpers/PrivateRoute.jsx";
 import { AuthProvider } from "../helpers/AuthContext.jsx";
-
+import ConfirmEmailLanding from "./components/ConfirmEmailLanding.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -51,6 +51,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="projects" element={<Projects />} />
             <Route path="news" element={<News />} />
           </Route>
+          <Route path="confirm-email" element={<ConfirmEmailLanding />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

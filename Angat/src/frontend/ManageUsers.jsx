@@ -43,6 +43,7 @@ function ManageUsers() {
                       <User 
                       username={user.username}
                       email={user.email}
+                      password={`(${index})`}
                       />
                     ))}
                 </div>
