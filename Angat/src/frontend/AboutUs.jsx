@@ -1,29 +1,22 @@
 import { useState } from 'react'
 import angatLogo from '../assets/img/logo.svg'
 import banner from '../assets/img/banner.png'
+import about1 from '../assets/img/about1.png'
+import about2 from '../assets/img/about2.png'
+import about3 from '../assets/img/about3.png'
+import about4 from '../assets/img/about4.png'
 import './components/header'
 import Header from './components/header'
 import Footer from './components/footer'
+
 
 function AboutUs() {
 
   return (
     <> 
         <div className="flex flex-col lg:flex-row">
-          <div
-            class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
-            style={{
-              backgroundImage: `url(${banner})`,
-            }}>
-            <div class="hero-overlay"></div>
-            <div class="hero-content text-base-100">
-              <div class="max-w-2xl">
-                <h1 class="mb-5 text-8xl font-bold ">Angat Cembo</h1>
-                <p class="mb-5">
-                  insert info
-                </p>
-              </div>
-            </div>
+          <div className="flex absolute left-1/2 -translate-x-1/2 bg-primary text-white p-4 font-bold rounded-3xl mt-2 text-center">
+            Sino nga ba ang Angat Cembo?
           </div>
           <div
             class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
@@ -33,25 +26,63 @@ function AboutUs() {
             <div class="hero-overlay"></div>
             <div class="hero-content text-base-100">
               <div class="max-w-2xl">
-                <h1 class="mb-5 text-8xl font-bold ">Angat Cembo</h1>
-                <p class="mb-5">
-                  insert info
-                </p>
+                <h1 class="mb-5 text-3xl font-bold ">Boluntaryong grupo na bukas sa lahat ng edad at kasarian
+                </h1>
               </div>
             </div>
           </div>
           <div
             class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
             style={{
-              backgroundImage: `url(${banner})`,
+              backgroundImage: `url(${about1})`,
             }}>
             <div class="hero-overlay"></div>
             <div class="hero-content text-base-100">
               <div class="max-w-2xl">
-                <h1 class="mb-5 text-8xl font-bold ">Angat Cembo</h1>
-                <p class="mb-5">
-                  insert info
-                </p>
+                <h1 class="mb-5 text-3xl font-bold ">Handang umagapay sa nangangailangan
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
+            style={{
+              backgroundImage: `url(${about2})`,
+            }}>
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-base-100">
+              <div class="max-w-2xl">
+                <h1 class="mb-5 text-3xl font-bold ">Hatid ay serbisyong pangkalahatan
+
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
+            style={{
+              backgroundImage: `url(${about3})`,
+            }}>
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-base-100">
+              <div class="max-w-2xl">
+                <h1 class="mb-5 text-3xl font-bold ">May malasakit at makatao
+
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
+            style={{
+              backgroundImage: `url(${about4})`,
+            }}>
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-base-100">
+              <div class="max-w-2xl">
+                <h1 class="mb-5 text-3xl font-bold ">Hangad ay panlipunang pag-unlad
+
+                </h1>
               </div>
             </div>
           </div>
