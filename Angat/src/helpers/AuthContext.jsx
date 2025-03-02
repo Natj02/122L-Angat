@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-
+import { useLocation } from "react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import supabase from "./supabaseClient";
 import { getCurrentUser } from "./auth";
@@ -8,7 +8,14 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const queryClient = useQueryClient(); // Query Client
+  const queryClient = useQueryClient();
+  const location = useLocation(); // Get current path
+
+  // List of paths where the query should be disabled
+  const DISABLED_PAGES = ["/about", "/success-page", "/create-pass", "/confirm-email", "/register", "/login", "/linkages"];
+
+  // Check if the current path is in the disabled list
+  const isQueryDisabled = DISABLED_PAGES.includes(location.pathname);
 
   // Fetch user role from Supabase
   const fetchUserRole = async (userId) => {
@@ -28,15 +35,12 @@ export const AuthProvider = ({ children }) => {
 
   // React Query to fetch role when user state changes
   const { data: userRole, isLoading } = useQuery({
-    queryKey: ["userRole", user?.id], // Cache based on user ID
-    queryFn: () => fetchUserRole(user?.id),
-    enabled: !!user, // Only run when user exists
-    staleTime: 3600000, //1 Hour
-    refetchOnWindowFocus: false,
+    queryKey: ["userRole", user?.id],               // Cache based on user ID
+    queryFn: () => fetchUserRole(user?.id),         // Yeah.
+    enabled: !!user && !isQueryDisabled,            // If  user exists
+    staleTime: Infinity,                            //Never refetch
+    refetchOnWindowFocus: false,                    // Disable refetch on window focus (the weird rerendering)
   });
-  useEffect(() => {
-    console.log("AuthProvider Mounted");
-  }, []);
 
   // Initialize user on app load
   useEffect(() => {
