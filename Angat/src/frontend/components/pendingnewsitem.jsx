@@ -1,3 +1,5 @@
+import { updateNewsStatus } from '../../helpers/dbHelper';
+
 function PendingNewsItem(props){
     let deleteId = props.title + 'Delete'
     return (
@@ -31,7 +33,10 @@ function PendingNewsItem(props){
                                  Are you sure you want to approve <span className="font-bold">{props.title}</span>?
                                 </div>
                                 <div className="flex flex-row gap-2">
-                                    <div className='btn btn-primary grow '>
+                                    <div className='btn btn-primary grow'
+                                    onClick={() => {
+                                        updateNewsStatus(props.newsid, "approved");
+                                        document.getElementById(props.title).close();}}>
                                         Yes
                                     </div>
                                     <div className='btn btn-primary grow ' onClick={()=>document.getElementById(props.title).close()}>
@@ -53,7 +58,10 @@ function PendingNewsItem(props){
                                  Are you sure you want to reject <span className="font-bold">{props.title}</span>?
                                 </div>
                                 <div className="flex flex-row gap-2">
-                                    <div className='btn btn-primary grow '>
+                                    <div className='btn btn-primary grow '
+                                        onClick={() => {
+                                            updateNewsStatus(props.newsid, "rejected");
+                                            document.getElementById(deleteId).close();}}>
                                         Yes
                                     </div>
                                     <div className='btn btn-primary grow ' onClick={()=>document.getElementById(deleteId).close()}>

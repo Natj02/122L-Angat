@@ -5,7 +5,8 @@ import { useProjects } from '../helpers/dbHelper'
 import { formatDate } from '../helpers/misc'
 
 function PendingProjects() {
-    const pendingProjects = useProjects(["pending"]);
+    const pendingProjects = (useProjects(["pending"]));
+    
     return (
         <>
             <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
@@ -23,10 +24,11 @@ function PendingProjects() {
                 </div>
 
                 <div className="flex flex-col pt-4 gap-4">
-                {pendingProjects.length > 0 ? (
+                    {pendingProjects.length > 0 ? (
                         pendingProjects.map((project) => (
                             <PendingProject
                                 key={project.projectid}
+                                projectId={project.projectid}
                                 title={project.name}
                                 date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
                                 creationDate={formatDate(project.created_at)}
@@ -34,8 +36,8 @@ function PendingProjects() {
                             />
                         ))
                     ) : (
-                       <h2 className="text-2xl font-bold">No projects to review.</h2>
-                    )}                
+                        <h2 className="text-2xl font-bold">No projects to review.</h2>
+                    )}
                 </div>
             </div>
         </>

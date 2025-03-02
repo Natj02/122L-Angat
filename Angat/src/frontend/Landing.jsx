@@ -33,7 +33,7 @@ function Landing() {
       <div className='w-full p-8 md:p-16 bg-base-200 shadow-sm'>
         <div className="m-auto w-full lg:w-7/10">
           <div className="text-center text-4xl font-bold">
-            Ongoing Projects
+            Upcoming and Ongoing Projects
           </div>
           <div className='flex flex-col md:flex-row mt-8 gap-8 justify-center'>
             {ongoingProjects.length > 0 ? (

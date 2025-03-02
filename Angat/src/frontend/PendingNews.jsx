@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './components/header'
 import PendingNewsItem from './components/pendingnewsitem'
 import { Link } from "react-router";
@@ -6,7 +5,6 @@ import { useNews } from '../helpers/dbHelper'
 import { formatTimeDate } from '../helpers/misc'
 
 function PendingNews() {
-  const [count, setCount] = useState(0)
   const pendingNews = useNews("pending");
 
   return (
@@ -30,6 +28,7 @@ function PendingNews() {
                         pendingNews.map((item, index) => (
                             <PendingNewsItem
                                 key={item.newsid}
+                                newsid={item.newsid}
                                 title={item.title}
                                 date={formatTimeDate(item.created_at)}
                                 description={item.content}

@@ -31,6 +31,19 @@ export const useProjects = (statuses = [], asc = false) => {
     return projects;
 };
 
+export const updateProjectStatus = async (projectId, status) => {
+    const { error } = await supabase.from("project")
+        .update({ status: status})
+        .eq("projectid", projectId);
+
+    if (error) {
+        console.error("Error updating project status:", error);
+        return false;
+    }
+    console.log(`Status of Project ${projectId} changed to ${status}!`);
+    return true;
+};
+
 const getNews = async (status = null) => {
     let query = supabase.from("news").select("*").order("updated_at", {ascending: false});
 
@@ -57,4 +70,17 @@ export const useNews = (status = null) => {
     }, [status]); // Re-fetch if `status` changes
 
     return news;
+};
+
+export const updateNewsStatus = async (newsId, status) => {
+    const { error } = await supabase.from("news")
+        .update({ status: status})
+        .eq("newsid", newsId);
+
+    if (error) {
+        console.error("Error updating news status:", error);
+        return false;
+    }
+    console.log(`Status of News ${newsId} changed to ${status}!`);
+    return true;
 };

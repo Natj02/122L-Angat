@@ -1,3 +1,5 @@
+import { updateProjectStatus } from '../../helpers/dbHelper'
+
 function PendingProject(props){
     let deleteId = props.title + 'Delete'
     return (
@@ -34,7 +36,10 @@ function PendingProject(props){
                                  Are you sure you want to approve <span className="font-bold">{props.title}</span>?
                                 </div>
                                 <div className="flex flex-row gap-2">
-                                    <div className='btn btn-primary grow '>
+                                    <div className='btn btn-primary grow '
+                                        onClick={() => {
+                                            updateProjectStatus(props.projectId, "ongoing");
+                                            document.getElementById(props.title).close();}}>
                                         Yes
                                     </div>
                                     <div className='btn btn-primary grow ' onClick={()=>document.getElementById(props.title).close()}>
@@ -56,7 +61,10 @@ function PendingProject(props){
                                  Are you sure you want to reject <span className="font-bold">{props.title}</span>?
                                 </div>
                                 <div className="flex flex-row gap-2">
-                                    <div className='btn btn-primary grow '>
+                                    <div className='btn btn-primary grow '
+                                        onClick={() => {
+                                            updateProjectStatus(props.projectId, "rejected");
+                                            document.getElementById(deleteId).close();}}>
                                         Yes
                                     </div>
                                     <div className='btn btn-primary grow ' onClick={()=>document.getElementById(deleteId).close()}>
