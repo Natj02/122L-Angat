@@ -1,46 +1,57 @@
-import angatLogo from '../assets/img/logo.png';
+import angatLogo from "../assets/img/logo.png";
 import { updatePassword } from "../helpers/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import supabase from "../helpers/supabaseClient";
 
 export default function CreateNewPass() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleUpdatePass = async () => {
+    if (loading) return; // Prevent duplicate requests
+    setLoading(true);
+
     setError(null);
 
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
+      setLoading(false);
       return;
     }
 
     if (password.length < 8) {
       setError("Password must be at least 8 characters long.");
+      setLoading(false);
       return;
     }
 
-    const { error } = await updatePassword(password);
+    // Ensure user session exists before updating password
+    const { data: session } = await supabase.auth.getSession();
+    if (!session?.session) {
+      setError("Session expired. Please request another reset link.");
+      setLoading(false);
+      return;
+    }
+
+    const { error } = await supabase.auth.updateUser({ password: password });
+   
     if (error) {
       setError(error.message);
     } else {
+  
       navigate("/success-page");
     }
+
+    setLoading(false);
   };
 
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">
-        {/* Back Button */}
-        <button
-          onClick={() => window.history.back()}
-          className="absolute top-4 left-4 px-4 py-2 bg-primary text-gray-700 rounded-lg hover:bg-cyan-600 transition"
-        >
-          ← Back
-        </button>
-
         <div className="flex w-[80%] max-w-2/3 bg-primary shadow-2xl rounded-3xl overflow-hidden">
           {/* Left Section - Logo */}
           <div className="flex flex-col hidden lg:flex items-center justify-center w-1/2 bg-gradient-to-r from-gray-300 to-gray-100 p-8">
@@ -84,7 +95,7 @@ export default function CreateNewPass() {
               {/* Reset Password Button */}
               <button
                 onClick={handleUpdatePass}
-                className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition"
+                className="w-full cursor-pointer py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition"
               >
                 Reset Password
               </button>

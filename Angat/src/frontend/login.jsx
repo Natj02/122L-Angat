@@ -10,9 +10,9 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const isLoggingIn = useRef(false); // Track if login is in progress
-  // Caching last reset request to avoid duplicate calls
+  const isLoggingIn = useRef(false);
   const [lastResetRequest, setLastResetRequest] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // Handle login without unnecessary API calls
   const handleLogin = async (e) => {
@@ -36,21 +36,23 @@ export default function Login() {
     isLoggingIn.current = false; // Allow future logins
   };
 
-  // Handle password reset with request limit
   const resetRedirect = async () => {
+    if (loading) return; // Prevent duplicate requests
+    setLoading(true); // Start loading
+
     if (!email) {
       setError("Please enter your email to reset password.");
+      setLoading(false);
       return;
     }
 
-    // Prevent duplicate reset requests
     if (lastResetRequest && Date.now() - lastResetRequest < 60000) {
       setError("A reset request was already sent. Please check your email.");
+      setLoading(false);
       return;
     }
 
     setError(null);
-
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "http://localhost:5173/create-pass",
     });
@@ -59,8 +61,10 @@ export default function Login() {
       setError(error.message);
     } else {
       alert("Password reset link has been sent to your email.");
-      setLastResetRequest(Date.now()); // Store timestamp of last request
+      setLastResetRequest(Date.now());
     }
+
+    setLoading(false); // End loading
   };
 
   return (
@@ -144,14 +148,9 @@ export default function Login() {
 
               {/* Remember Me & Forgot Password */}
               <div className="flex justify-between items-center text-sm text-gray-600">
-                <label className="flex items-center">
-                  <input type="checkbox" className="mr-2" />
-                  Remember Me
-                </label>
-
                 <a
                   onClick={() => resetRedirect(email)}
-                  className="text-white hover:underline"
+                  className="text-white hover:underline cursor-pointer"
                 >
                   Forgot Password?
                 </a>
@@ -160,7 +159,7 @@ export default function Login() {
               {/* Sign In Button */}
               <button
                 type="submit"
-                className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition"
+                className="w-full cursor-pointer py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition"
               >
                 Sign In
               </button>

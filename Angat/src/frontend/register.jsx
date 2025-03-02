@@ -83,7 +83,7 @@ export default function Register() {
                         </label>
 
                         {/* Register Button */}
-                        <button type="submit" className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition">
+                        <button type="submit" className="cursor-pointer w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-pink-800 transition">
                             Register
                         </button>
                     </form>

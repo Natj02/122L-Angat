@@ -4,30 +4,9 @@ import { Link } from "react-router-dom";
 import  Profile  from "./Profile";
 import { useAuth } from '../../helpers/AuthContext'; 
 
+
 function Header() {
   const { user, userRole, loading } = useAuth();
-  /*
-  const loc = useLocation()
-  useEffect(() => {
-    const fetchUserInitials = async () => {
-      setAuthN(true);
-      try {
-
-        const userData = await getCurrentUser();
-        if (userData && userData.user_metadata && userData.user_metadata.username) {
-          
-          setUserInitials(userData.user_metadata.username.slice(0, 2).toUpperCase());
-        }else{
-          setAuthN(false);
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        setAuthN(false);
-      }
-    };
-    fetchUserInitials();
-  }, [loc]);
-  console.log(authN)*/
   const userName =  user?.user_metadata?.username ?? "";
   return (
     <>
