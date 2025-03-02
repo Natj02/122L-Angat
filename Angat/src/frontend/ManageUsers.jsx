@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import User from './components/user';
 import supabase from "../helpers/supabaseClient";
 
+
 function ManageUsers() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);

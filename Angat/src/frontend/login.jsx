@@ -1,47 +1,67 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { signIn } from "../helpers/auth";
 import angatLogo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import supabase from "../helpers/supabaseClient";
-import { getCurrentUser } from "../helpers/auth";
+import { getCurrentUser, signIn } from "../helpers/auth";
 
 export default function Login() {
+  const [error, setError] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const isLoggingIn = useRef(false); // Track if login is in progress
+  // Caching last reset request to avoid duplicate calls
+  const [lastResetRequest, setLastResetRequest] = useState(null);
 
+  // Handle login without unnecessary API calls
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    if (isLoggingIn.current) return; // Prevent multiple requests
+    isLoggingIn.current = true; // Mark as logging in
     setError(null);
 
-    const { error } = await signIn(email, password);
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
     if (error) {
       setError(error.message);
     } else {
       navigate("/");
     }
+
+    isLoggingIn.current = false; // Allow future logins
   };
 
+  // Handle password reset with request limit
   const resetRedirect = async () => {
-    setError(null);
     if (!email) {
       setError("Please enter your email to reset password.");
       return;
     }
-  
+
+    // Prevent duplicate reset requests
+    if (lastResetRequest && Date.now() - lastResetRequest < 60000) {
+      setError("A reset request was already sent. Please check your email.");
+      return;
+    }
+
+    setError(null);
+
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "http://localhost:5173/create-pass", // Make sure this URL is correct
+      redirectTo: "http://localhost:5173/create-pass",
     });
-  
+
     if (error) {
       setError(error.message);
     } else {
       alert("Password reset link has been sent to your email.");
+      setLastResetRequest(Date.now()); // Store timestamp of last request
     }
   };
-  
 
   return (
     <>

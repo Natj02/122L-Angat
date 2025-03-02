@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import supabase from '../../helpers/supabaseClient';
+import { deleteUser } from '../../helpers/auth';
 
 function User({ uid, username: initialUsername, email, onUserUpdated, onDeleteUser }) {
     const [username, setUsername] = useState(initialUsername);

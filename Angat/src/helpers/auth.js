@@ -46,3 +46,9 @@ export const updatePassword = async (pass) => {
     })
     return { error };
 }
+
+//Delete User
+export const deleteUser = async (id) => {
+    const { data, error } = await supabase.auth.admin.deleteUser(id)
+    return { error };
+}

@@ -21,14 +21,14 @@ export default function SuccessPage() {
       setSecondary("Please wait for an admin to approve your account.");
     }
   }, [location]);
-
+/*
   useEffect(() => {
     const fetchUser = async () => {
       console.log(await getCurrentUser());
     };
     fetchUser();
   }, []);
-
+*/
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-300 relative">
       {/* Back Button */}
