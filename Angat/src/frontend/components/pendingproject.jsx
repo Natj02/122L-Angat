@@ -3,6 +3,7 @@ import angatLogo from '../../assets/img/logo.svg'
 import banner from '../../assets/img/banner.png'
 
 function PendingProject(props){
+    let deleteId = props.title + 'Delete'
     return (
         <>
                 <div className='flex flex-col md:flex-row gap-4 w-full items-center bg-base-300 p-3 rounded-lg'>
@@ -21,12 +22,50 @@ function PendingProject(props){
                             </div>
                         </div>
                         <div className="flex flex-row gap-2 w-full md:w-auto">
-                            <div className='btn btn-primary grow md:grow-0'>
+                            <button className='btn btn-primary grow md:grow-0' onClick={()=>document.getElementById(props.title).showModal()}>
                                 Approve
+                            </button>
+                            <dialog id={props.title} className="modal">
+                            <div className="modal-box bg-base-200">
+                                <form method="dialog">
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                </form>
+                                <h3 className="font-bold text-lg">Approve Project</h3>
+                                <div>
+                                 Are you sure you want to approve <span className="font-bold">{props.title}</span>?
+                                </div>
+                                <div className="flex flex-row gap-2">
+                                    <div className='btn btn-primary grow '>
+                                        Yes
+                                    </div>
+                                    <div className='btn btn-primary grow ' onClick={()=>document.getElementById(props.title).close()}>
+                                        No
+                                    </div>
+                                </div>
                             </div>
-                            <div className='btn btn-primary grow md:grow-0'>
+                            </dialog>
+                            <button className='btn btn-primary grow md:grow-0' onClick={()=>document.getElementById(deleteId).showModal()}>
                                 Reject
+                            </button>
+                            <dialog id={deleteId} className="modal">
+                            <div className="modal-box bg-base-200">
+                                <form method="dialog">
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                </form>
+                                <h3 className="font-bold text-lg">Reject Project</h3>
+                                <div>
+                                 Are you sure you want to reject <span className="font-bold">{props.title}</span>?
+                                </div>
+                                <div className="flex flex-row gap-2">
+                                    <div className='btn btn-primary grow '>
+                                        Yes
+                                    </div>
+                                    <div className='btn btn-primary grow ' onClick={()=>document.getElementById(deleteId).close()}>
+                                        No
+                                    </div>
+                                </div>
                             </div>
+                            </dialog>
                         </div>
                     </div>
         </>)
