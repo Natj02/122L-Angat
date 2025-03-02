@@ -1,6 +1,5 @@
 import { signOut } from "../../helpers/auth";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../../helpers/AuthContext';
 import { Link } from "react-router-dom";
 
 const Profile = ({ username, userRole }) => {

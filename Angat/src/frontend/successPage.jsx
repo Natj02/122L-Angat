@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import angatLogo from "../assets/img/logo.svg";
-import { getCurrentUser } from "../helpers/auth";
 
 export default function SuccessPage() {
   const navigate = useNavigate();

@@ -1,41 +1,44 @@
 import { useState } from 'react'
-import angatLogo from '../assets/img/logo.svg'
-import banner from '../assets/img/banner.png'
 import './components/header'
-import Header from './components/header'
-import Footer from './components/footer'
 import PendingNewsItem from './components/pendingnewsitem'
+import { Link } from "react-router";
+import { useNews } from '../helpers/dbHelper'
+import { formatTimeDate } from '../helpers/misc'
 
 function PendingNews() {
   const [count, setCount] = useState(0)
+  const pendingNews = useNews("pending");
 
   return (
     <> 
-
             <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
                 <div className="flex flex-row justify-between ">
                     <div className="text-3xl font-bold">
                         Pending News
                     </div>
                     <div className='flex gap-2'>
+                        <Link to="/news">
                         <div className='btn btn-primary'>
                            Back
                         </div>
-
+                        </Link>
                     </div>
                 </div>
                 
                 <div className="flex flex-col pt-4 gap-4">
-                    <PendingNewsItem
-                    title="News Title"
-                    date ="date"
-                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Morbi fermentum consectetur vestibulum. Etiam elementum porttitor mi eu rutrum. Duis ut varius ex, at egestas augue. Aenean dui ligula, mattis a mi eget, egestas dictum velit. Aliquam a arcu nec tortor imperdiet efficitur."/>
-
-                    
-                    
-                    
+                {pendingNews.length > 0 ? (
+                        pendingNews.map((item, index) => (
+                            <PendingNewsItem
+                                key={item.newsid}
+                                title={item.title}
+                                date={formatTimeDate(item.created_at)}
+                                description={item.content}
+                            />
+                        ))
+                    ) : (
+                       <h2 className="text-2xl font-bold">No news to review.</h2>
+                    )}                
                 </div>
-             
             </div>
     </>
   )

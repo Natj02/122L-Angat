@@ -1,5 +1,4 @@
 import angatLogo from "../assets/img/logo.png";
-import { updatePassword } from "../helpers/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import supabase from "../helpers/supabaseClient";

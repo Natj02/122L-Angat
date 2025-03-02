@@ -1,7 +1,3 @@
-import { useState } from 'react'
-import angatLogo from '../../assets/img/logo.svg'
-import banner from '../../assets/img/banner.png'
-
 function PendingNewsItem(props){
     let deleteId = props.title + 'Delete'
     return (

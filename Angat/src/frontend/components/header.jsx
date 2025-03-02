@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import angatLogo from "../../assets/img/logo.svg";
 import { Link } from "react-router-dom";
 import  Profile  from "./Profile";

@@ -1,13 +1,9 @@
-import { useState } from 'react'
-import angatLogo from '../assets/img/logo.svg'
 import banner from '../assets/img/banner.png'
 import about1 from '../assets/img/about1.png'
 import about2 from '../assets/img/about2.png'
 import about3 from '../assets/img/about3.png'
 import about4 from '../assets/img/about4.png'
 import './components/header'
-import Header from './components/header'
-import Footer from './components/footer'
 
 
 function AboutUs() {

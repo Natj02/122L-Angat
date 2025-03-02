@@ -1,6 +1,5 @@
 import angatLogo from "../../assets/img/logo.svg";
 import erm_actually from "../../assets/img/erm_actually.jpg";
-import { useAuth } from "../../helpers/AuthContext";
 import { useState } from "react";
 import supabase from "../../helpers/supabaseClient";
 

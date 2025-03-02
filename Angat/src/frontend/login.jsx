@@ -1,9 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import angatLogo from "../assets/img/logo.png";
-import { Link } from "react-router-dom";
 import supabase from "../helpers/supabaseClient";
-import { getCurrentUser, signIn } from "../helpers/auth";
 
 export default function Login() {
   const [error, setError] = useState(null);

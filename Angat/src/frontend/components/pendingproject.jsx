@@ -1,7 +1,3 @@
-import { useState } from 'react'
-import angatLogo from '../../assets/img/logo.svg'
-import banner from '../../assets/img/banner.png'
-
 function PendingProject(props){
     let deleteId = props.title + 'Delete'
     return (
@@ -16,6 +12,9 @@ function PendingProject(props){
                             </div>
                             <div className="font-bold text-sm">
                                 {props.date}
+                            </div>
+                            <div className="font-bold text-sm">
+                                Created on: {props.creationDate}
                             </div>
                             <div className="text-sm overflow-hidden text-ellipsis line-clamp-3 h-16">
                             {props.description}                            
