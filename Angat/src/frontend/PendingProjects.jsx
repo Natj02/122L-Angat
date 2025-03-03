@@ -33,7 +33,7 @@ function PendingProjects() {
                                 date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
                                 creationDate={formatDate(project.created_at)}
                                 description={project.description}
-                                img={getImage("projects_news", item.image_filename)}
+                                img={getImage("projects_news", project.image_filename)}
                             />
                         ))
                     ) : (
