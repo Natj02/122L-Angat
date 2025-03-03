@@ -1,16 +1,59 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useState, useEffect } from "react";
 import banner from "../assets/img/banner.png";
 import "./components/header";
 import LandingCard from "./components/LandingCard.jsx";
-import { useProjects, getImage } from "../helpers/dbHelper.js";
+import useStore from "../helpers/Store.js";
 import { formatDate } from "../helpers/misc";
-// import './App.css'
 
 function Landing() {
-  const [count, setCount] = useState(0);
-  const ongoingProjects = useProjects(["ongoing"], true);
-  const recentProjects = useProjects(["completed"]);
+  const { projects, fetchProjects, getImage, subscribeToProjects } = useStore();
+  const [ongoingUpcomingProjects, setOngoingUpcomingProjects] = useState([]); // asc true
+  const [recentProjects, setRecentProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchProjects();
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const subscription = subscribeToProjects(); // Call subscription function
+
+    return () => {
+      subscription.unsubscribe(); // Clean up on unmount
+    };
+  }, []);
+
+  useEffect(() => {
+    const today = new Date();
+
+    const ongoing = projects
+      .filter(
+        (project) =>
+          project.status === "approved" &&
+          new Date(project.start_date) <= today &&
+          new Date(project.end_date) >= today
+      )
+      .sort((a, b) => new Date(a.end_date) - new Date(b.end_date));
+
+    const upcoming = projects
+      .filter(
+        (project) =>
+          project.status === "approved" && new Date(project.start_date) > today
+      )
+      .sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
+
+    const recent = projects
+      .filter(
+        (project) =>
+          project.status === "approved" && new Date(project.end_date) < today
+      )
+      .sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
+
+    setOngoingUpcomingProjects([...ongoing, ...upcoming]);
+    setRecentProjects(recent);
+  }, [projects]);
 
   return (
     <>
@@ -42,22 +85,29 @@ function Landing() {
             Upcoming and Ongoing Projects
           </div>
           <div className="flex flex-col md:flex-row mt-8 gap-8 justify-center">
-            {ongoingProjects.length > 0 ? (
-              ongoingProjects.map((project) => (
-                  <LandingCard
-                    key={project.projectid}
-                    title={project.name}
-                    date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
-                    img={getImage("projects_news", project.image_filename)}
-                    description={project.description}
-                  />
-              ))
-            ) : (
+            {projects.length === 0 ? (
+              // Still fetching data
               <>
                 <LandingCard title="Loading..." date="Loading..." />
                 <LandingCard title="Loading..." date="Loading..." />
                 <LandingCard title="Loading..." date="Loading..." />
               </>
+            ) : ongoingUpcomingProjects.length > 0 ? (
+              // Display actual projects
+              ongoingUpcomingProjects.map((project) => (
+                <LandingCard
+                  key={project.projectid}
+                  title={project.name}
+                  date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                  img={getImage("projects_news", project.image_filename)}
+                  description={project.description}
+                />
+              ))
+            ) : (
+              // No upcoming/ongoing projects found
+              <div className="text-center text-xl font-semibold text-gray-600">
+                No upcoming or projects
+              </div>
             )}
           </div>
         </div>

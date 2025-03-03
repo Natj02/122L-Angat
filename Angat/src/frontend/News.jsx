@@ -1,15 +1,35 @@
-import { useState, useEffect } from 'react'
 import './components/header'
 import NewsItem from './components/newsitem'
 import { useAuth } from '../helpers/AuthContext';
 import { Link } from "react-router-dom";
-import { useNews, getImage } from '../helpers/dbHelper'
 import { formatTimeDate } from '../helpers/misc'
+import useStore from '../helpers/Store';
+import { useState, useEffect } from "react";
 
 function News() {
-    const [count, setCount] = useState(0)
     const { user, userRole, loading } = useAuth();
-    const approvedNews = useNews("approved");
+    const { news, fetchNews, getImage, subscribeToNews } = useStore();
+    const [approvedNews, setApprovedNews] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await fetchNews();
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const subscription = subscribeToNews(); // Call subscription function
+
+        return () => {
+            subscription.unsubscribe(); // Clean up on unmount
+        };
+    }, []);
+
+    useEffect(() => {
+        setApprovedNews(news.filter((item) => item.status === "approved"));
+    }, [news]);
+
     return (
         <>
             <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
@@ -40,9 +60,9 @@ function News() {
                         ))
                     ) : (
                         <NewsItem
-                        title='Loading...'
-                        date=''
-                        description=''/>
+                            title='Loading...'
+                            date=''
+                            description='' />
                     )}
                 </div>
 

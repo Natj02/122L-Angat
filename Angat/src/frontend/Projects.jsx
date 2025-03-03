@@ -2,13 +2,35 @@ import './components/header'
 import Project from './components/project'
 import { Link } from "react-router-dom";
 import { useAuth } from '../helpers/AuthContext';
-import { useProjects, getImage } from '../helpers/dbHelper';
 import { formatDate } from '../helpers/misc';
+import useStore from '../helpers/Store';
+import { useState , useEffect } from "react";
 
 function Projects() {
     const { user, userRole, loading } = useAuth();
-    const projects = useProjects(["ongoing", "completed"], false);
+    const { projects, fetchProjects, getImage, subscribeToProjects } = useStore();
+    const [approvedProjects, setApprovedProjects] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await fetchProjects();
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const subscription = subscribeToProjects(); // Call subscription function
+
+        return () => {
+            subscription.unsubscribe(); // Clean up on unmount
+        };
+    }, []);
+
+    useEffect(() => {
+        setApprovedProjects(projects.filter((project) => project.status === "approved"));
+    }, [projects]);
     
+
     return (
         <>
             <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
@@ -28,8 +50,8 @@ function Projects() {
                 </div>
 
                 <div className="flex flex-col pt-4 gap-4">
-                    {projects.length > 0 ? (
-                        projects.map((project) => (
+                    {approvedProjects.length > 0 ? (
+                        approvedProjects.map((project) => (
                             <Project
                                 key={project.projectid}
                                 title={project.name}

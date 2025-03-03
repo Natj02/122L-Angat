@@ -1,9 +1,10 @@
-import { updateNewsStatus } from '../../helpers/dbHelper';
+import useStore from '../../helpers/Store';
 
 function PendingNewsItem(props){
+    const updateNewsStatus = useStore((state) => state.updateNewsStatus);
     let deleteId = props.title + 'Delete'
+
     return (
-        
         <>
                 <div className='flex flex-col md:flex-row gap-4 w-full items-center bg-base-300 p-3 rounded-lg'>
                         <img className='object-cover w-full h-full min-h-0 min-w-0 rounded-lg
@@ -35,9 +36,15 @@ function PendingNewsItem(props){
                                 </div>
                                 <div className="flex flex-row gap-2">
                                     <div className='btn btn-primary grow'
-                                    onClick={() => {
-                                        updateNewsStatus(props.newsid, "approved");
-                                        document.getElementById(props.title).close();}}>
+                                    onClick={async () => {
+                                        const success = await updateNewsStatus(props.newsid, "approved");
+                                        if (success) {
+                                            console.log(`News Item ${props.newsid} approved successfully!`);
+                                            document.getElementById(props.title).close();
+                                        } else {
+                                            console.error(`Failed to approve News Item ${props.newsid}`);
+                                        }
+                                    }}>
                                         Yes
                                     </div>
                                     <div className='btn btn-primary grow ' onClick={()=>document.getElementById(props.title).close()}>
@@ -60,9 +67,15 @@ function PendingNewsItem(props){
                                 </div>
                                 <div className="flex flex-row gap-2">
                                     <div className='btn btn-primary grow '
-                                        onClick={() => {
-                                            updateNewsStatus(props.newsid, "rejected");
-                                            document.getElementById(deleteId).close();}}>
+                                        onClick={async () => {
+                                            const success = await updateNewsStatus(props.newsid, "rejected");
+                                            if (success) {
+                                                console.log(`News Item ${props.newsid} rejected successfully!`);
+                                                document.getElementById(deleteId).close();
+                                            } else {
+                                                console.error(`Failed to reject News Item ${props.newsid}`);
+                                            }
+                                        }}>
                                         Yes
                                     </div>
                                     <div className='btn btn-primary grow ' onClick={()=>document.getElementById(deleteId).close()}>

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Header from "./components/header";
-import Footer from "./components/footer";
 import supabase from "../helpers/supabaseClient";
 import { useAuth } from "../helpers/AuthContext";
 

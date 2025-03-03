@@ -1,11 +1,33 @@
 import "./components/header";
 import PendingNewsItem from "./components/pendingnewsitem";
 import { Link } from "react-router";
-import { useNews, getImage } from "../helpers/dbHelper";
 import { formatTimeDate } from "../helpers/misc";
+import useStore from '../helpers/Store';
+import { useState, useEffect } from "react";
 
 function PendingNews() {
-  const pendingNews = useNews("pending");
+  const { news, fetchNews, getImage, subscribeToNews } = useStore();
+  const [pendingNews, setPendingNews] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchNews();
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const subscription = subscribeToNews(); // Call subscription function
+
+    return () => {
+      subscription.unsubscribe(); // Clean up on unmount
+    };
+  }, []);
+
+  useEffect(() => {
+    setPendingNews(news.filter((item) => item.status === "pending"));
+  }, [news]);
+
   return (
     <>
       <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">

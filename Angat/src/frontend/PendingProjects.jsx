@@ -1,11 +1,32 @@
 import './components/header'
 import PendingProject from './components/pendingproject'
 import { Link } from "react-router";
-import { useProjects, getImage } from '../helpers/dbHelper'
 import { formatDate } from '../helpers/misc'
+import useStore from '../helpers/Store';
+import { useState , useEffect } from "react";
 
 function PendingProjects() {
-    const pendingProjects = (useProjects(["pending"]));
+    const { projects, fetchProjects, getImage, subscribeToProjects } = useStore();
+    const [pendingProjects, setPendingProjects] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await fetchProjects();
+        };
+        fetchData();
+    }, []);
+    
+    useEffect(() => {
+        const subscription = subscribeToProjects(); // Call subscription function
+
+        return () => {
+            subscription.unsubscribe(); // Clean up on unmount
+        };
+    }, []);
+
+    useEffect(() => {
+        setPendingProjects(projects.filter((project) => project.status === "pending"));
+    }, [projects]);
     
     return (
         <>
