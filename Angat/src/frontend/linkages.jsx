@@ -70,23 +70,13 @@ function Linkages() {
 
             {/* Donation Methods Tabs */}
             <section id="donation">
-            <div className="flex justify-center mt-4 space-x-4">
-                <button className="px-5 py-3 bg-cyan-900 text-white font-semibold rounded-md text-3xl">
-                GCash
-                </button>
-                <button className="px-5 py-3 border border-primary text-gray-800 font-semibold rounded-md hover:bg-primary bg-base-200 text-3xl">
-                Bank Transfer
-                </button>
-            </div>
-            </section>
-
-            
-
-            <div className="divider divider-primary"></div>
-
-            {/* QR Code Section */}
-           
-            <div className="flex justify-center">
+            {/* name of each tab group should be unique */}
+            <div className="tabs tabs-lift tabs-lg">
+              <span className='tab'></span>
+              <input type="radio" name="my_tabs_3" className="tab" aria-label="GCash" defaultChecked/>
+              <div className="tab-content bg-base-100 border-base-300 p-6">
+              <div className="divider divider-primary"></div>
+              <div className="flex justify-center">
                 <div className="bg-teal-500 p-6 rounded-lg">
                 <img src={donate} alt="QR Code" className="w-100 h-100 mx-auto" />
                 </div>
@@ -130,8 +120,25 @@ function Linkages() {
                 </strong>
                 </h2>
             </div>
+              </div>
 
-            <div className="divider divider-primary"></div>
+              <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 2"  />
+              <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>
+
+              <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 3" />
+              <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
+              <span className='tab'></span>
+            </div>
+            </section>
+
+            
+
+
+            {/* QR Code Section */}
+           
+            
+
+            
           </div>
 
         </div>
