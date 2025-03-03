@@ -56,7 +56,7 @@ createRoot(document.getElementById("root")).render(
 
           {/* Public routes */}
           <Route path="linkages" element={<Linkages />} />
-          <Route path="view-item" element={<ViewItem />} />
+          <Route path="view-item/:category/:id" element={<ViewItem />} />
           <Route path="projects" element={<Projects />} />
           <Route path="news" element={<News />} />
         </Route>
