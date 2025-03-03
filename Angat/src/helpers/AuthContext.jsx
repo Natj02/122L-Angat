@@ -12,10 +12,10 @@ export const AuthProvider = ({ children }) => {
   const location = useLocation(); // Get current path
 
   // List of paths where the query should be disabled
-  const DISABLED_PAGES = ["/about", "/success-page", "/create-pass", "/confirm-email", "/register", "/login", "/linkages"];
+  //const DISABLED_PAGES = ["/about", "/success-page", "/create-pass", "/confirm-email", "/register", "/login", "/linkages"];
 
   // Check if the current path is in the disabled list
-  const isQueryDisabled = DISABLED_PAGES.includes(location.pathname);
+  //const isQueryDisabled = DISABLED_PAGES.includes(location.pathname);
 
   // Fetch user role from Supabase
   const fetchUserRole = async (userId) => {
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   const { data: userRole, isLoading } = useQuery({
     queryKey: ["userRole", user?.id],               // Cache based on user ID
     queryFn: () => fetchUserRole(user?.id),         // Yeah.
-    enabled: !!user && !isQueryDisabled,            // If  user exists
+    enabled: !!user, //&& !isQueryDisabled,            // If  user exists
     staleTime: Infinity,                            //Never refetch
     refetchOnWindowFocus: false,                    // Disable refetch on window focus (the weird rerendering)
   });

@@ -11,11 +11,8 @@ export default function SuccessPage() {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const type = params.get("type");
-
-    if (type === "passwordChanged") {
-      setMessage("Password Successfully Changed!");
-      setSecondary("You can now log in using your new password.");
-    }
+    setMessage("Password Successfully Changed!");
+    setSecondary("You can now log in using your new password.");
   }, []); // Ensure this only runs ONCE
 
   /*
