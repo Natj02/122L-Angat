@@ -3,7 +3,7 @@ import './components/header'
 import NewsItem from './components/newsitem'
 import { useAuth } from '../helpers/AuthContext';
 import { Link } from "react-router-dom";
-import { useNews } from '../helpers/dbHelper'
+import { useNews, getImage } from '../helpers/dbHelper'
 import { formatTimeDate } from '../helpers/misc'
 
 function News() {
@@ -35,6 +35,7 @@ function News() {
                                 title={item.title}
                                 date={formatTimeDate(item.updated_at)}
                                 description={item.content}
+                                img={getImage("projects_news", item.image_filename)}
                             />
                         ))
                     ) : (

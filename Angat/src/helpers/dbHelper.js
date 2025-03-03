@@ -33,7 +33,7 @@ export const useProjects = (statuses = [], asc = false) => {
 
 export const updateProjectStatus = async (projectId, status) => {
     const { error } = await supabase.from("project")
-        .update({ status: status})
+        .update({ status: status })
         .eq("projectid", projectId);
 
     if (error) {
@@ -45,7 +45,7 @@ export const updateProjectStatus = async (projectId, status) => {
 };
 
 const getNews = async (status = null) => {
-    let query = supabase.from("news").select("*").order("updated_at", {ascending: false});
+    let query = supabase.from("news").select("*").order("updated_at", { ascending: false });
 
     if (status) {
         query = query.eq("status", status);
@@ -74,7 +74,7 @@ export const useNews = (status = null) => {
 
 export const updateNewsStatus = async (newsId, status) => {
     const { error } = await supabase.from("news")
-        .update({ status: status})
+        .update({ status: status })
         .eq("newsid", newsId);
 
     if (error) {
@@ -84,3 +84,17 @@ export const updateNewsStatus = async (newsId, status) => {
     console.log(`Status of News ${newsId} changed to ${status}!`);
     return true;
 };
+
+export const getImage = (bucket_name, img_filename) => {
+    const { data, error } = supabase
+        .storage
+        .from(bucket_name) // Ensure this matches the bucket name
+        .getPublicUrl(img_filename);
+
+    if (error) {
+        console.error('Error fetching file URL:', error);
+        return null
+    }
+    //console.log('File URL:', data.publicUrl);
+    return data?.publicUrl
+}

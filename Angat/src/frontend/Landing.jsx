@@ -2,7 +2,7 @@ import { useState } from 'react'
 import banner from '../assets/img/banner.png'
 import './components/header'
 import LandingCard from './components/LandingCard.jsx'
-import { useProjects } from '../helpers/dbHelper.js'
+import { useProjects, getImage } from '../helpers/dbHelper.js'
 import { formatDate } from '../helpers/misc'
 // import './App.css'
 
@@ -42,6 +42,7 @@ function Landing() {
                   key={project.projectid}
                   title={project.name}
                   date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                  img={getImage("projects_news", project.image_filename)}
                 />
               ))
             ) : (

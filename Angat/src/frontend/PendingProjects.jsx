@@ -1,7 +1,7 @@
 import './components/header'
 import PendingProject from './components/pendingproject'
 import { Link } from "react-router";
-import { useProjects } from '../helpers/dbHelper'
+import { useProjects, getImage } from '../helpers/dbHelper'
 import { formatDate } from '../helpers/misc'
 
 function PendingProjects() {
@@ -33,6 +33,7 @@ function PendingProjects() {
                                 date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
                                 creationDate={formatDate(project.created_at)}
                                 description={project.description}
+                                img={getImage("projects_news", item.image_filename)}
                             />
                         ))
                     ) : (

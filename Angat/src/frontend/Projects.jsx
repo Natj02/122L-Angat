@@ -2,7 +2,7 @@ import './components/header'
 import Project from './components/project'
 import { Link } from "react-router-dom";
 import { useAuth } from '../helpers/AuthContext';
-import { useProjects } from '../helpers/dbHelper';
+import { useProjects, getImage } from '../helpers/dbHelper';
 import { formatDate } from '../helpers/misc';
 
 function Projects() {
@@ -35,6 +35,7 @@ function Projects() {
                                 title={project.name}
                                 date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
                                 description={project.description}
+                                img={getImage("projects_news", project.image_filename)}
                             />
                         ))
                     ) : (
