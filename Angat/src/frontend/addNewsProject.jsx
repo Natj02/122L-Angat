@@ -10,6 +10,9 @@ function AddNewsProject() {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
   const allowedExtensions = ["jpg", "jpeg", "png"];
 
   // Handle file selection
@@ -24,8 +27,8 @@ function AddNewsProject() {
     setLoading(true);
     setMessage("");
 
-    if (!title || !description) {
-      setMessage("Title and Description are required.");
+    if (!title || !description || !startDate || !endDate) {
+      setMessage("Title, Description, and Dates are required.");
       setLoading(false);
       return;
     }
@@ -35,7 +38,7 @@ function AddNewsProject() {
 
       if (image) {
         const fileExt = image.name.split(".").pop();
-        console.log(fileExt);
+      
         if (!allowedExtensions.includes(fileExt)) {
           setMessage(
             `Invalid file type! Only ${allowedExtensions.join(", ")} files are allowed.`,
@@ -84,8 +87,8 @@ function AddNewsProject() {
               name: title,
               description,
               status: "pending",
-              start_date: new Date(), // Default to today (adjust as needed)
-              end_date: null, // Can be left null or set a default
+              start_date: startDate, // Default to today (adjust as needed)
+              end_date: endDate, // Can be left null or set a default
               created_at: new Date(),
               updated_at: new Date(),
               image_filename: imageUrl
@@ -171,12 +174,12 @@ function AddNewsProject() {
                 <label className="block text-sm font-medium text-gray-700">
                   Start Date
                 </label>
-                <input type="date" class="input" placeholder="My awesome page" />
+                <input type="date" class="input" placeholder="My awesome page" onChange={(e) => setStartDate(e.target.value)} />
               </div><div>
                   <label className="block text-sm font-medium text-gray-700">
                     End Date
                   </label>
-                  <input type="date" class="input" placeholder="My awesome page" />
+                  <input type="date" class="input" placeholder="My awesome page" onChange={(e) => setEndDate(e.target.value)} />
                 </div></>}
               
 
