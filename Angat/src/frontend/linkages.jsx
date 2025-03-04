@@ -2,6 +2,9 @@ import { useState } from 'react'
 import banner from '../assets/img/banner.png'
 import './components/header'
 import donate from '../assets/img/donate.jpg'
+import partner from '../assets/img/partner.png'
+import volunteer from '../assets/img/volunteer.png'
+import contribute from '../assets/img/contribute.png'
 
 function Linkages() {
   const [count, setCount] = useState(0)
@@ -17,9 +20,7 @@ function Linkages() {
             
             {/* Partner Section */}
             <div className="bg-gray-100 p-6 shadow-md rounded-lg">
-              <div className="w-full bg-gray-400 flex items-center justify-center">
-                <img src={banner} alt="Contribute" />
-              </div>
+              <img src={partner} className='object-cover w-full h-full max-h-60' alt="Contribute" />
               <a class="email-link" href="mailto:angatcembo.org@gmail.com" target = "_blank" rel="noreferrer"><h3 className="text-2xl font-semibold mt-4 text-center">Partner</h3></a>
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Join us as a partner and help expand our impact.
@@ -28,9 +29,7 @@ function Linkages() {
 
             {/* Contribute Section */}
             <div className="bg-gray-100 p-6 shadow-md rounded-lg">
-              <div className="w-full bg-gray-400 flex items-center justify-center">
-              <img src={banner} alt="Contribute" />
-              </div>
+              <img src={contribute} className='object-cover w-full h-full max-h-60' alt="Contribute" />
               <a href="#donation"><h3 className="text-2xl font-semibold mt-4 text-center">Contribute</h3></a>
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Support our cause through contributions and donations.
@@ -39,9 +38,7 @@ function Linkages() {
 
             {/* Volunteer Section */}
             <div className="bg-gray-100 p-6 shadow-md rounded-lg">
-              <div className="w-full bg-gray-400 flex items-center justify-center">
-                <img src={banner} alt="Contribute" />
-              </div>
+              <img src={volunteer} className='object-cover w-full h-full max-h-60' alt="Contribute" />
               <a class="email-link" href="mailto:angatcembo.org@gmail.com" target = "_blank" rel="noreferrer"><h3 className="text-2xl font-semibold mt-4 text-center">Volunteer</h3></a>
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Be a part of our mission by volunteering your time and skills.
