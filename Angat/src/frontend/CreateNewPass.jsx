@@ -1,15 +1,18 @@
 import angatLogo from "../assets/img/logo.png";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import supabase from "../helpers/supabaseClient";
 
 export default function CreateNewPass() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    sessionStorage.removeItem("fromPage"); // Cleanup after entry
+  }, []);
   const handleUpdatePass = async () => {
     if (loading) return; // Prevent duplicate requests
     setLoading(true);
@@ -37,11 +40,11 @@ export default function CreateNewPass() {
     }
 
     const { error } = await supabase.auth.updateUser({ password: password });
-   
+
     if (error) {
       setError(error.message);
     } else {
-  
+      sessionStorage.setItem("fromPage", "/create-pass");
       navigate("/success-page");
     }
 

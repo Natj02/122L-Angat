@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import angatLogo from "../assets/img/logo.png";
 import supabase from "../helpers/supabaseClient";
@@ -37,7 +37,7 @@ export default function Login() {
   const resetRedirect = async () => {
     if (loading) return; // Prevent duplicate requests
     setLoading(true); // Start loading
-
+    console.log("xmwuvnfbv");
     if (!email) {
       setError("Please enter your email to reset password.");
       setLoading(false);
@@ -51,8 +51,9 @@ export default function Login() {
     }
 
     setError(null);
+    sessionStorage.setItem("fromPage", "/login");
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "http://localhost:5173/create-pass",
+      redirectTo: `http://localhost:5173/create-pass`,
     });
 
     if (error) {
@@ -61,6 +62,8 @@ export default function Login() {
       alert("Password reset link has been sent to your email.");
       setLastResetRequest(Date.now());
     }
+
+    //Successful Authentication
 
     setLoading(false); // End loading
   };
