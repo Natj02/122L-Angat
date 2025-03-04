@@ -29,7 +29,7 @@ function PendingProject(props) {
                         Approve
                     </button>
                     <dialog id={props.title} className="modal">
-                        <div className="modal-box bg-base-200">
+                        <div className="modal-box bg-base-200" >
                             <form method="dialog">
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
@@ -38,7 +38,7 @@ function PendingProject(props) {
                                 Are you sure you want to approve <span className="font-bold">{props.title}</span>?
                             </div>
                             <div className="flex flex-row gap-2">
-                                <div className='btn btn-primary grow '
+                                <div className='btn btn-primary grow'
                                     onClick={async () => {
                                         const success = await updateProjectStatus(props.projectId, "approved");
                                         if (success) {

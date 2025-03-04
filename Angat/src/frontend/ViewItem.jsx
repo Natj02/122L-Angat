@@ -22,7 +22,7 @@ function ViewItem() {
   useEffect(() => {
     setData(location.state.data);
     setImage(location.state.img);
-  }, [])
+  }, [location.state]);
 
   return (
     <>

@@ -66,7 +66,7 @@ function Landing() {
       >
         <div class="hero-overlay"></div>
         <div class="hero-content text-base-100">
-          <div class="max-w-4xl ml-12">
+          <div class="max-w-4xl mx-12">
             <h1 class="mb-5 text-5xl font-bold lg:text-8xl">Angat Cembo</h1>
             <p class="mb-5">
               We, the Angat Cembo Community Inc., are a non-government

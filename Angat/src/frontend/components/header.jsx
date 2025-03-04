@@ -3,11 +3,48 @@ import { Link } from "react-router-dom";
 import  Profile  from "./Profile";
 import { useAuth } from '../../helpers/AuthContext'; 
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import useStore from "../../helpers/Store";
 
 function Header() {
   const location =  useLocation();
   const { user, userRole, loading } = useAuth();
   const userName =  user?.user_metadata?.username ?? "";
+  const [searchQuery, setSearchQuery] = useState('');
+  const {projects, news, getImage} = useStore();
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    if (query.length > 0) {
+        const filteredResults = [...projects, ...news]
+            .filter((item) => 
+                item.status === "approved" &&
+            (
+              (item.title && item.title.toLowerCase().includes(query)) || 
+              (item.content && item.content.toLowerCase().includes(query)) ||
+              (item.name && item.name.toLowerCase().includes(query)) ||
+              (item.description && item.description.toLowerCase().includes(query))
+            )
+                
+            )
+            .map((item) => ({
+                id: item.newsid || item.projectid,
+                name: item.name || item.title,  // Use project name or news title
+                description: item.description || item.content,
+                img: getImage("projects_news", item.image_filename),
+                rowData: item,
+                type: projects.includes(item) ? "Project" : "News", // Identify source type
+            }));
+
+        setSearchResults(filteredResults);
+    } else {
+        setSearchResults([]); // Clear search results when query is empty
+    }
+};
+
   return (
     <>
       <div class="navbar px-6 bg-primary shadow-sm sticky -top-0 z-50  ">
@@ -70,7 +107,9 @@ function Header() {
               <img src={angatLogo} alt="Angat Logo" />
             </Link>
           </div>
-          <label className="input ml-4 hidden sm:flex">
+          {/* Search Bar */}
+          <div className="ml-4 max-w-50">
+          <label className="input hidden sm:flex">
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -87,8 +126,41 @@ function Header() {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" className="grow" placeholder="Search" />
+            <input 
+              type="search"
+              className="grow"
+              placeholder="Search"
+              value={searchQuery}
+              onChange={handleSearchChange}/>
           </label>
+          {/* Search Result */}
+          {searchQuery.length > 0 ?
+          <>
+          <div className="bg-white hidden sm:flex absolute z-2 p-3 max-w-1/2 rounded-lg">
+          <div className="flex flex-col space-y-1">
+            {/* {searchQuery} */}
+            {searchResults.length > 0 ? (
+              searchResults.map((item) => (
+                <Link
+                  to={`/view-item/${item.type.toLowerCase()}/${item.id}`}
+                  state={{ data: item.rowData, img: item.img }}
+                  onClick={() => setSearchQuery('')}
+                  >
+                 <div class>
+                  <div className="font-bold text-lg">{item.name}</div>
+                  <div className="text-sm">{item.description}</div>
+                  <div className="text-sm">{item.type}</div>
+                 </div>
+                </ Link>
+            ))
+            ) : (
+              <div className="text-sm">No results found</div>
+            )}
+          </div>
+          </div>
+          </>:<></>}
+          </div>
+          {/* Search End */}
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2
