@@ -184,22 +184,28 @@ function AddNewsProject() {
               
 
               {/* Image Upload */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Upload Image
+              <div className="w-full flex flex-col">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Image
                 </label>
                 <input
                   type="file"
-                  className="mt-1 p-2 w-full border rounded-md bg-white"
+                  //className="mt-1 p-2 w-full border rounded-md bg-white"
+                  className="w-[0.1px] h-[0.1px] opacity-0 overflow-hidden absolute z-[-1]"
+                  name="image"
+                  id="image"
                   accept="image/*"
+
                   onChange={handleFileChange}
                 />
+                <label className="w-full bg-secondary flex justify-center text-white py-2 px-4 rounded-md hover:bg-pink-800"
+                  htmlFor="image">{image ? image.name + " (Change Image)" : "Upload Image"}</label>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-secondary text-white py-2 px-4 rounded-md hover:bg-pink-800"
+                className="w-full bg-secondary text-white py-2 px-4 rounded-md inline-block hover:bg-pink-800"
                 disabled={loading}
               >
                 {loading
