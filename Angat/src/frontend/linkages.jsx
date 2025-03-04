@@ -72,12 +72,11 @@ function Linkages() {
             <section id="donation">
             {/* name of each tab group should be unique */}
             <div className="tabs tabs-lift tabs-lg">
-              <span className='tab'></span>
-              <input type="radio" name="my_tabs_3" className="tab" aria-label="GCash" defaultChecked/>
-              <div className="tab-content bg-base-100 border-base-300 p-6">
-              <div className="divider divider-primary"></div>
-              <div className="flex justify-center">
-                <div className="bg-teal-500 p-6 rounded-lg">
+              <span className='tab [--border:3px]'></span>
+              <input type="radio" name="my_tabs_3" className="tab [--tab-bg:#fff4e4] [--tab-border-color:#18c6d2] [--border:3px]" aria-label="GCash" defaultChecked/>
+              <div className="tab-content bg-base-300 border-primary p-6 [--border:3px]">
+              <div className="flex justify-center ">
+                <div className="bg-teal-500 p-6 rounded-lg mt-4">
                 <img src={donate} alt="QR Code" className="w-100 h-100 mx-auto" />
                 </div>
             </div>
@@ -122,12 +121,10 @@ function Linkages() {
             </div>
               </div>
 
-              <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 2"  />
-              <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>
+              <input type="radio" name="my_tabs_3" className="tab [--tab-bg:#fff4e4] [--tab-border-color:#18c6d2] [--border:3px]" aria-label="Tab 2"  />
+              <div className="tab-content bg-base-300 border-primary [--border:3px] p-6">Tab content 2</div>
 
-              <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 3" />
-              <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
-              <span className='tab'></span>
+              <span className='tab border-primary  [--tab-border-color:#18c6d2] [--border:3px] mr-4'></span>
             </div>
             </section>
 

@@ -19,6 +19,7 @@ function AddNewsProject() {
 
   // Handle form submission
   const handleSubmit = async (event) => {
+    
     event.preventDefault();
     setLoading(true);
     setMessage("");
@@ -164,6 +165,20 @@ function AddNewsProject() {
                   required
                 ></textarea>
               </div>
+
+
+              {category === "projects" && <><div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Start Date
+                </label>
+                <input type="date" class="input" placeholder="My awesome page" />
+              </div><div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    End Date
+                  </label>
+                  <input type="date" class="input" placeholder="My awesome page" />
+                </div></>}
+              
 
               {/* Image Upload */}
               <div>

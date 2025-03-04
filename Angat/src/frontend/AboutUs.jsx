@@ -93,7 +93,7 @@ function AboutUs() {
           </div>
         </div>
 
-        <div className='w-full p-8 md:p-14 bg-secondary shadow-sm'>
+        {/* <div className='w-full p-8 md:p-14 bg-secondary shadow-sm'>
           <div className="m-auto w-7/10">
             <div className='flex flex-col-reverse lg:flex-row justify-between'>
               <div>
@@ -125,7 +125,7 @@ function AboutUs() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
     </>
   )
 }
