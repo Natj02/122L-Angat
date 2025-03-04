@@ -66,7 +66,7 @@ function Landing() {
       >
         <div class="hero-overlay"></div>
         <div class="hero-content text-base-100">
-          <div class="max-w-4xl">
+          <div class="max-w-4xl ml-12">
             <h1 class="mb-5 text-8xl font-bold ">Angat Cembo</h1>
             <p class="mb-5">
               We, the Angat Cembo Community Inc., are a non-government
@@ -96,12 +96,14 @@ function Landing() {
               // Display actual projects
               ongoingUpcomingProjects.map((project) => (
                 <LandingCard
-                  key={project.projectid}
-                  title={project.name}
-                  date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
-                  img={getImage("projects_news", project.image_filename)}
-                  description={project.description}
-                />
+                    key={project.projectid}
+                    id = {project.projectid}
+                    title={project.name}
+                    date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                    img={getImage("projects_news", project.image_filename)}
+                    description={project.description}
+                    rowData={project}
+                  />
               ))
             ) : (
               // No upcoming/ongoing projects found
@@ -125,9 +127,12 @@ function Landing() {
                 .map((project) => (
                   <LandingCard
                     key={project.projectid}
+                    id = {project.projectid}
                     title={project.name}
                     date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                    img={getImage("projects_news", project.image_filename)}
                     description={project.description}
+                    rowData={project}
                   />
                 ))
             ) : (

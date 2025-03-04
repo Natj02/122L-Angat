@@ -4,14 +4,12 @@ import  Profile  from "./Profile";
 import { useAuth } from '../../helpers/AuthContext'; 
 import { useLocation } from "react-router-dom";
 
-
 function Header() {
   const location =  useLocation();
   const { user, userRole, loading } = useAuth();
   const userName =  user?.user_metadata?.username ?? "";
   return (
     <>
-    
       <div class="navbar px-6 bg-primary shadow-sm sticky -top-0 z-50  ">
         <div class="navbar-start w-10/12 lg:w-1/2">
           {/* Dropdown for mobile */}
@@ -24,13 +22,13 @@ function Header() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
+                
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
@@ -67,12 +65,12 @@ function Header() {
           {/* Angat Logo */}
           <div
             className="rounded-lg bg-base-100 p-1
-            ml-4"
-          >
+            ml-4">
             <Link to="/" className="btn btn-ghost text-xl h-16 w-16 p-0">
               <img src={angatLogo} alt="Angat Logo" />
             </Link>
           </div>
+
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 text-base-100 font-bold gap-2

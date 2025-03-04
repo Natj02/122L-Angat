@@ -30,7 +30,6 @@ function Projects() {
         setApprovedProjects(projects.filter((project) => project.status === "approved"));
     }, [projects]);
     
-
     return (
         <>
             <div className="w-full lg:w-7/10 px-4 sm:px-16 py-10 mx-auto bg-base-200">
@@ -54,10 +53,12 @@ function Projects() {
                         approvedProjects.map((project) => (
                             <Project
                                 key={project.projectid}
+                                id = {project.projectid}
                                 title={project.name}
                                 date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
                                 description={project.description}
                                 img={getImage("projects_news", project.image_filename)}
+                                rowData={project}
                             />
                         ))
                     ) : (

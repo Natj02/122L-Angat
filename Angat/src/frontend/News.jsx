@@ -52,10 +52,12 @@ function News() {
                         approvedNews.map((item, index) => (
                             <NewsItem
                                 key={item.newsid}
+                                id = {item.newsid}
                                 title={item.title}
                                 date={formatTimeDate(item.updated_at)}
                                 description={item.content}
                                 img={getImage("projects_news", item.image_filename)}
+                                rowData={item}
                             />
                         ))
                     ) : (

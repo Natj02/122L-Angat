@@ -79,7 +79,7 @@ function AddNewsProject() {
               content: description,
               status: "pending", // Default status for admin approval
               created_at: new Date(),
-              updated_at: new Date(),
+              updated_at: null,
               image_filename: imageUrl
             }
           : {
@@ -90,7 +90,7 @@ function AddNewsProject() {
               start_date: startDate, // Default to today (adjust as needed)
               end_date: endDate, // Can be left null or set a default
               created_at: new Date(),
-              updated_at: new Date(),
+              updated_at: null,
               image_filename: imageUrl
             };
 

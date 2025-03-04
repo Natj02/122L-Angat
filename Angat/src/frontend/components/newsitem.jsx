@@ -4,7 +4,8 @@ function NewsItem(props) {
   return (
     <>
       <Link
-        to={`/view-item/news/${encodeURIComponent(props.name)}?img=${encodeURIComponent(props.img)}&title=${encodeURIComponent(props.title)}&date=${encodeURIComponent(props.date)}&description=${encodeURIComponent(props.description)}`}
+        to={`/view-item/news/${props.id}`}
+        state={{ data: props.rowData, img: props.img }}
         className="transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 flex flex-row gap-4 w-full max-h-32 bg-base-300 p-3 rounded-lg"
       >
         <img

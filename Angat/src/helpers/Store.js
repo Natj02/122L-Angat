@@ -35,9 +35,11 @@ const useStore = create((set, get) => ({
 
     // Update Project Status
     updateProjectStatus: async (projectId, status) => {
+        const updatedAt = new Date().toISOString();
+
         const { error } = await supabase
             .from("project")
-            .update({ status })
+            .update({ status, updated_at: updatedAt })
             .eq("projectid", projectId);
 
         if (error) {
@@ -46,9 +48,12 @@ const useStore = create((set, get) => ({
         }
 
         console.log(`Status of Project ${projectId} changed to ${status}!`);
+
         set((state) => ({
             projects: state.projects.map((project) =>
-                project.projectid === projectId ? { ...project, status } : project
+                project.projectid === projectId
+                    ? { ...project, status, updated_at: updatedAt } // Also update updated_at in local state
+                    : project
             ),
         }));
         return true;
@@ -56,9 +61,11 @@ const useStore = create((set, get) => ({
 
     // Update News Status
     updateNewsStatus: async (newsId, status) => {
+        const updatedAt = new Date().toISOString();
+
         const { error } = await supabase
             .from("news")
-            .update({ status })
+            .update({ status, updated_at: updatedAt })
             .eq("newsid", newsId);
 
         if (error) {
@@ -69,7 +76,7 @@ const useStore = create((set, get) => ({
         console.log(`Status of News ${newsId} changed to ${status}!`);
         set((state) => ({
             news: state.news.map((item) =>
-                item.newsid === newsId ? { ...item, status } : item
+                item.newsid === newsId ? { ...item, status, updated_at: updatedAt } : item
             ),
         }));
         return true;
@@ -123,15 +130,20 @@ const useStore = create((set, get) => ({
     }, 
 
     // Fetch Public Image URL from Supabase Storage
-    getImage: (bucket_name, img_filename) => {
-        const { data, error } = supabase.storage.from(bucket_name).getPublicUrl(img_filename);
+    getImage: (bucket_name, img_filename = null) => {
+        if(img_filename){
+            const { data, error } = supabase.storage.from(bucket_name).getPublicUrl(img_filename);
 
-        if (error) {
-            console.error("Error fetching file URL:", error);
+            if (error) {
+                console.error("Error fetching file URL:", error);
+                return null;
+            }
+    
+            return data?.publicUrl;            
+        }
+        else{
             return null;
         }
-
-        return data?.publicUrl;
     },
 }));
 
