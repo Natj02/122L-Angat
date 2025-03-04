@@ -2,9 +2,11 @@ import angatLogo from "../../assets/img/logo.svg";
 import { Link } from "react-router-dom";
 import  Profile  from "./Profile";
 import { useAuth } from '../../helpers/AuthContext'; 
+import { useLocation } from "react-router-dom";
 
 
 function Header() {
+  const location =  useLocation();
   const { user, userRole, loading } = useAuth();
   const userName =  user?.user_metadata?.username ?? "";
   return (
@@ -77,27 +79,27 @@ function Header() {
           [&_li>a:hover]:bg-secondary
           [&_li>a]:px-4">
             <li>
-              <Link to="/" className="px-4">
+              <Link to="/" className={`px-4 ${location.pathname === "/" ? "bg-secondary" : ""}`}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" className="px-4">
+              <Link to="/about" className={`px-4 ${location.pathname === "/about" ? "bg-secondary" : ""}`}>
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="/linkages" className="px-4">
+              <Link to="/linkages" className={`px-4 ${location.pathname === "/linkages" ? "bg-secondary" : ""}`}>
                 Linkages
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="px-4">
+              <Link to="/projects" className={`px-4 ${location.pathname === "/projects" ? "bg-secondary" : ""}`}>
                 Projects
               </Link>
             </li>
             <li>
-              <Link to="/news" className="px-4">
+              <Link to="/news" className={`px-4 ${location.pathname === "/news" ? "bg-secondary" : ""}`}>
                 News
               </Link>
             </li>
