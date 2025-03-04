@@ -124,13 +124,13 @@ function AddNewsProject() {
             {/* Toggle between News & Project */}
             <div className="flex justify-center mb-4">
               <button
-                className={`px-4 py-2 rounded-l-md ${category === "news" ? "bg-secondary text-white" : "bg-gray-300"}`}
+                className={`px-4 py-2 rounded-l-md cursor-pointer ${category === "news" ? "bg-secondary text-white" : "bg-gray-300"}`}
                 onClick={() => setCategory("news")}
               >
                 News
               </button>
               <button
-                className={`px-4 py-2 rounded-r-md ${category === "projects" ? "bg-secondary text-white" : "bg-gray-300"}`}
+                className={`px-4 py-2 rounded-r-md cursor-pointer ${category === "projects" ? "bg-secondary text-white" : "bg-gray-300"}`}
                 onClick={() => setCategory("projects")}
               >
                 Project
@@ -174,12 +174,12 @@ function AddNewsProject() {
                 <label className="block text-sm font-medium text-gray-700">
                   Start Date
                 </label>
-                <input type="date" class="input" placeholder="My awesome page" onChange={(e) => setStartDate(e.target.value)} />
+                <input type="date" class="input"  onChange={(e) => setStartDate(e.target.value)} />
               </div><div>
                   <label className="block text-sm font-medium text-gray-700">
                     End Date
                   </label>
-                  <input type="date" class="input" placeholder="My awesome page" onChange={(e) => setEndDate(e.target.value)} />
+                  <input type="date" class="input" onChange={(e) => setEndDate(e.target.value)} />
                 </div></>}
               
 
@@ -198,14 +198,14 @@ function AddNewsProject() {
 
                   onChange={handleFileChange}
                 />
-                <label className="w-full bg-secondary flex justify-center text-white py-2 px-4 rounded-md hover:bg-pink-800"
+                <label className="w-full bg-secondary flex cursor-pointer justify-center text-white py-2 px-4 rounded-md hover:bg-pink-800"
                   htmlFor="image">{image ? image.name + " (Change Image)" : "Upload Image"}</label>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-secondary text-white py-2 px-4 rounded-md inline-block hover:bg-pink-800"
+                className="w-full bg-secondary text-white cursor-pointer py-2 px-4 rounded-md inline-block hover:bg-pink-800"
                 disabled={loading}
               >
                 {loading
