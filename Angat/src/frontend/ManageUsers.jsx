@@ -10,8 +10,8 @@ function ManageUsers() {
     const fetchData = async () => {
       const { data, error } = await supabase
         .from("users")
-        .select("uid, username, email"); 
-
+        .select("uid, username, email, role:role_id(role_name)"); 
+      console.log(data);
       if (error) {
         setError(error.message);
       } else {
@@ -40,6 +40,7 @@ function ManageUsers() {
         <div className="flex flex-col pt-4 gap-4">
           {users.map((user) => (
             <User 
+              role_name={user.role.role_name}
               key={user.uid} 
               uid={user.uid}
               username={user.username}

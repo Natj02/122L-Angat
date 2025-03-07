@@ -45,7 +45,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const initializeAuth = async () => {
       const currentUser = await getCurrentUser();
-      console.log(currentUser)
       setUser(currentUser);
     };
 

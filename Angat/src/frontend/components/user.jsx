@@ -4,6 +4,7 @@ import { deleteUser } from "../../helpers/auth";
 
 function User({
   uid,
+  role_name,
   username: initialUsername,
   email,
   onUserUpdated,
@@ -26,17 +27,15 @@ function User({
       .update({ username })
       .eq("uid", uid);
     const { data, error: usernameError } = await supabase.auth.updateUser({
-        data: { username: username }
-      });
+      data: { username: username },
+    });
 
     if (error) {
       setError(error.message);
-
     }
     if (usernameError) {
-      setError(usernameError.message)
-    }
-    else {
+      setError(usernameError.message);
+    } else {
       onUserUpdated({ uid, username, email });
       document.getElementById(editId).close();
     }
@@ -63,6 +62,9 @@ function User({
           <div className="font-bold text-2xl">{username}</div>
           <div className="flex flex-row gap-4">
             <div className="font-bold text-sm">{email}</div>
+            <div className="font-bold text-sm">
+              ({role_name.charAt(0).toUpperCase() + role_name.slice(1)})
+            </div>
           </div>
         </div>
 
