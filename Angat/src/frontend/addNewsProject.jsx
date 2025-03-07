@@ -215,7 +215,7 @@ function AddNewsProject() {
 
               {/* Display Message */}
               {message && (
-                <p className="text-center mt-2 text-red-500">{message}</p>
+                <p className={`text-center font-extrabold mt-2 ${message === "Submission successful!" ? "text-base-100" : "text-red-500" }`}>{message}</p>
               )}
             </form>
           </div>

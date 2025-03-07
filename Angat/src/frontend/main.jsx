@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 // import './index.css'
-import Landing from "./Landing.jsx";
+import {Landing, ScrollToTop} from "./Landing.jsx";
 import Register from "./register.jsx";
 import AboutUs from "./AboutUs.jsx";
 import Login from "./login.jsx";
@@ -31,6 +31,7 @@ createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <AuthProvider>
+        <ScrollToTop />
         <Routes>
           {/* Routes outside the Base layout */}
           <Route

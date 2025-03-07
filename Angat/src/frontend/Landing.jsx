@@ -3,9 +3,20 @@ import banner from "../assets/img/banner.png";
 import "./components/header";
 import LandingCard from "./components/LandingCard.jsx";
 import useStore from "../helpers/Store.js";
+import { useLocation } from "react-router-dom";
 import { formatDate } from "../helpers/misc";
 
-function Landing() {
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+export function Landing() {
   const { projects, fetchProjects, getImage, subscribeToProjects } = useStore();
   const [ongoingUpcomingProjects, setOngoingUpcomingProjects] = useState([]); // asc true
   const [recentProjects, setRecentProjects] = useState([]);
@@ -149,4 +160,3 @@ function Landing() {
   );
 }
 
-export default Landing;
