@@ -7,7 +7,7 @@ export const PrivateRoleRoute = ({ allowedRoles }) => {
   if (loading) return <p>Loading...</p>;
 
   if (!user || (allowedRoles && !allowedRoles.includes(userRole))) {
-    return <Navigate to="/" />;
+    return <Navigate to="/NotFound" />;
   }
 
   return <Outlet />;
