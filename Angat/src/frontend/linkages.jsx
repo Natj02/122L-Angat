@@ -128,7 +128,7 @@ function Linkages() {
                     </h3>
                     <h2 className="mt-15 text-gray-700 space-y-2 flex justify-center text-xl mb-10">
                       <strong>
-                        <ol className="mx-10 list-decimal space-y-2">
+                        <ol className="font-medium mx-10 list-decimal space-y-2">
                           <li>
                             Open the GCash app and log in using your PIN or
                             biometric authentication.
@@ -180,7 +180,7 @@ function Linkages() {
                         alt="QR Code"
                         className="w-50 h-15 mx-auto"
                       />
-                      <div className="font-extrabold text-lg text-wrap text-center">
+                      <div className="font-extrabold text-xl text-wrap text-center">
                         Bank Name: PNB
                         <br />
                         Account Name: Concepcion A. Garcia <br />
@@ -194,7 +194,7 @@ function Linkages() {
                     </h3>
                     <h2 className="mt-15 text-gray-700 space-y-2 flex justify-center text-xl mb-10">
                       <strong>
-                        <ol className="mx-10 list-decimal space-y-3">
+                        <ol className="font-medium mx-10 list-decimal space-y-3">
                           <li>Select the Transfer option</li>
                           <li>Select your preferred source account.</li>
                           <li>
@@ -205,7 +205,7 @@ function Linkages() {
                             amount to transfer. You can schedule the transfer
                             for a future date or set it to repeat (daily,
                             weekly, monthly, quarterly, or annually):
-                            <ul className="font-medium list-disc list-inside space-y-2">
+                            <ul className="font-extrabold text-2xl list-disc list-inside space-y-2">
                               <li>Bank Name: PNB</li>
                               <li> Account Name: Concepcion A. Garcia</li>
                               <li> Account Number: 150370012010</li>
@@ -225,7 +225,7 @@ function Linkages() {
                           <li>
                             Review the confirmation page with transaction
                             details.
-                            <ul className="font-medium list-disc list-inside space-y-2">
+                            <ul className="font-bold list-disc list-inside space-y-2">
                               <li>
                                 Tap “Share” to send a screenshot to the
                                 recipient.
