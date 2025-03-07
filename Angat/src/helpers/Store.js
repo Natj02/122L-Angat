@@ -16,7 +16,7 @@ const useStore = create((set, get) => ({
         }
 
         set({ projects: data });
-        console.log(data);
+        
         return data;
     },
     // Fetch News (with optional filtering by status)

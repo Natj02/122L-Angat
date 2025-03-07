@@ -9,8 +9,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const queryClient = useQueryClient();
-  const location = useLocation(); // Get current path
-
   // List of paths where the query should be disabled
   //const DISABLED_PAGES = ["/about", "/success-page", "/create-pass", "/confirm-email", "/register", "/login", "/linkages"];
 
@@ -30,6 +28,7 @@ export const AuthProvider = ({ children }) => {
       console.error("Error fetching user role:", error);
       return null;
     }
+
     return data?.role?.role_name || null;
   };
 
@@ -46,6 +45,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const initializeAuth = async () => {
       const currentUser = await getCurrentUser();
+      console.log(currentUser)
       setUser(currentUser);
     };
 
