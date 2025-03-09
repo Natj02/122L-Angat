@@ -15,6 +15,15 @@ function AddNewsProject() {
 
   const allowedExtensions = ["jpg", "jpeg", "png"];
 
+  const resetForm = () => {
+    setTitle("");
+    setDescription("");
+    setImage(null);
+    setStartDate("");
+    setEndDate("");
+    setMessage("");
+  };
+
   // Handle file selection
   const handleFileChange = (event) => {
     setImage(event.target.files[0]);
@@ -23,15 +32,26 @@ function AddNewsProject() {
   // Handle form submission
   const handleSubmit = async (event) => {
     
+
+    
     event.preventDefault();
     setLoading(true);
     setMessage("");
 
-    if (!title || !description || !startDate || !endDate) {
-      setMessage("Title, Description, and Dates are required.");
+    if (!title || !description) {
+      setMessage("Title and Description are required.");
       setLoading(false);
       return;
     }
+    
+    if (category === "projects") {
+      if (!startDate || !endDate) {
+        setMessage("Please enter both Start Date and End Date for projects.");
+        setLoading(false);
+        return; 
+      }
+  }
+  
 
     try {
       let imageUrl = null;
@@ -68,10 +88,21 @@ function AddNewsProject() {
         imageUrl = data?.path
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/projects_news/${category}/${fileName}`
           : null;*/
+
+        
       }
 
       const table = category === "news" ? "news" : "project";
+      const resetForm = () => {
+        setTitle("");
+        setDescription("");
+        setImage(null);
+        setStartDate("");
+        setEndDate("");
+        setMessage("");
+      };
       const dataToInsert =
+      
         category === "news"
           ? {
               uid: user?.id,
@@ -105,6 +136,9 @@ function AddNewsProject() {
       setTitle("");
       setDescription("");
       setImage(null);
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
     } catch (error) {
       setMessage(`Error: ${error.message}`);
     } finally {
@@ -125,13 +159,19 @@ function AddNewsProject() {
             <div className="flex justify-center mb-4">
               <button
                 className={`px-4 py-2 rounded-l-md cursor-pointer ${category === "news" ? "bg-secondary text-white" : "bg-gray-300"}`}
-                onClick={() => setCategory("news")}
+                onClick={() => {
+                  setCategory("news");
+                  resetForm();
+                }}
               >
                 News
               </button>
               <button
                 className={`px-4 py-2 rounded-r-md cursor-pointer ${category === "projects" ? "bg-secondary text-white" : "bg-gray-300"}`}
-                onClick={() => setCategory("projects")}
+                onClick={() => {
+                  setCategory("projects");
+                  resetForm();
+                }}
               >
                 Project
               </button>
@@ -139,6 +179,7 @@ function AddNewsProject() {
 
             {/* Form */}
             <form className="space-y-4" onSubmit={handleSubmit}>
+              
               {/* Title Input */}
               <div>
                 <label className="block text-sm font-medium text-gray-700">
