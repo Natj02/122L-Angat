@@ -44,21 +44,21 @@ export function Landing() {
         (project) =>
           project.status === "approved" &&
           new Date(project.start_date) <= today &&
-          new Date(project.end_date) >= today
+          new Date(project.end_date) >= today,
       )
       .sort((a, b) => new Date(a.end_date) - new Date(b.end_date));
 
     const upcoming = projects
       .filter(
         (project) =>
-          project.status === "approved" && new Date(project.start_date) > today
+          project.status === "approved" && new Date(project.start_date) > today,
       )
       .sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
 
     const recent = projects
       .filter(
         (project) =>
-          project.status === "approved" && new Date(project.end_date) < today
+          project.status === "approved" && new Date(project.end_date) < today,
       )
       .sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
 
@@ -107,14 +107,14 @@ export function Landing() {
               // Display actual projects
               ongoingUpcomingProjects.map((project) => (
                 <LandingCard
-                    key={project.projectid}
-                    id = {project.projectid}
-                    title={project.name}
-                    date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
-                    img={getImage("projects_news", project.image_filename)}
-                    description={project.description}
-                    rowData={project}
-                  />
+                  key={project.projectid}
+                  id={project.projectid}
+                  title={project.name}
+                  date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                  img={getImage("projects_news", project.image_filename)}
+                  description={project.description}
+                  rowData={project}
+                />
               ))
             ) : (
               // No upcoming/ongoing projects found
@@ -138,7 +138,7 @@ export function Landing() {
                 .map((project) => (
                   <LandingCard
                     key={project.projectid}
-                    id = {project.projectid}
+                    id={project.projectid}
                     title={project.name}
                     date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
                     img={getImage("projects_news", project.image_filename)}
@@ -148,9 +148,9 @@ export function Landing() {
                 ))
             ) : (
               <>
-                <LandingCard title="Loading..." date="Loading..." />
-                <LandingCard title="Loading..." date="Loading..." />
-                <LandingCard title="Loading..." date="Loading..." />
+                <div className="text-center text-xl font-semibold text-gray-600">
+                  No recent projects
+                </div>
               </>
             )}
           </div>
@@ -159,4 +159,3 @@ export function Landing() {
     </>
   );
 }
-
