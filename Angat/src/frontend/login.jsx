@@ -53,7 +53,7 @@ export default function Login() {
     setError(null);
     sessionStorage.setItem("fromPage", "/login");
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `http://localhost:5173/create-pass`,
+      redirectTo: `https://angat-cembo.vercel.app/create-pass`,
     });
 
     if (error) {
