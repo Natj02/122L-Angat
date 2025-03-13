@@ -96,14 +96,7 @@ export function Landing() {
             Upcoming and Ongoing Projects
           </div>
           <div className="flex flex-col md:flex-row mt-8 gap-8 justify-center">
-            {projects.length === 0 ? (
-              // Still fetching data
-              <>
-                <LandingCard title="Loading..." date="Loading..." />
-                <LandingCard title="Loading..." date="Loading..." />
-                <LandingCard title="Loading..." date="Loading..." />
-              </>
-            ) : ongoingUpcomingProjects.length > 0 ? (
+            {ongoingUpcomingProjects.length > 0 ? (
               // Display actual projects
               ongoingUpcomingProjects.map((project) => (
                 <LandingCard
