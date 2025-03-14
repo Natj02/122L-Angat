@@ -1,6 +1,6 @@
 # 122L-Angat
 Angat Cembo Website Repo
 # Organization Contact Information
-(https://www.facebook.com/angatcembocommunityinc)
+[Facebook Page](https://www.facebook.com/angatcembocommunityinc)
 
-🚀 [Live Demo](https://angat-cembo.vercel.app/)
+🚀 [Live Website](https://angat-cembo.vercel.app/)
