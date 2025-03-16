@@ -62,7 +62,11 @@ function Projects() {
                 key={project.projectid}
                 id={project.projectid}
                 title={project.name}
-                date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                date={`${
+                  project.start_date === project.end_date
+                    ? formatDate(project.start_date)
+                    : `${formatDate(project.start_date)} - ${formatDate(project.end_date)}`
+                }`}
                 description={project.description}
                 img={getImage("projects_news", project.image_filename)}
                 rowData={project}

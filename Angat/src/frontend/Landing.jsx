@@ -103,7 +103,11 @@ export function Landing() {
                   key={project.projectid}
                   id={project.projectid}
                   title={project.name}
-                  date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                  date={`${
+                    project.start_date === project.end_date
+                      ? formatDate(project.start_date)
+                      : `${formatDate(project.start_date)} - ${formatDate(project.end_date)}`
+                  }`}
                   img={getImage("projects_news", project.image_filename)}
                   description={project.description}
                   rowData={project}
@@ -112,7 +116,7 @@ export function Landing() {
             ) : (
               // No upcoming/ongoing projects found
               <div className="text-center text-xl font-semibold text-gray-600">
-                No upcoming or projects
+                No upcoming or ongoing projects
               </div>
             )}
           </div>
@@ -133,7 +137,11 @@ export function Landing() {
                     key={project.projectid}
                     id={project.projectid}
                     title={project.name}
-                    date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                    date={`${
+                      project.start_date === project.end_date
+                        ? formatDate(project.start_date)
+                        : `${formatDate(project.start_date)} - ${formatDate(project.end_date)}`
+                    }`}
                     img={getImage("projects_news", project.image_filename)}
                     description={project.description}
                     rowData={project}
