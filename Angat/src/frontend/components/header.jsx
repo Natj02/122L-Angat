@@ -136,7 +136,7 @@ function Header() {
           {/* Search Result */}
           {searchQuery.length > 0 ?
           <>
-          <div className="bg-white hidden sm:flex absolute z-2 p-3 max-w-1/2 rounded-lg max-y-96 overflow-y-scroll">
+          <div className="bg-white hidden sm:flex absolute z-2 p-3 max-w-1/2 rounded-lg max-h-96 overflow-y-scroll">
           <div className="flex flex-col space-y-1 ">
             {/* {searchQuery} */}
             {searchResults.length > 0 ? (
