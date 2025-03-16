@@ -11,16 +11,8 @@ function Header() {
   const { user, userRole, loading } = useAuth();
   const userName =  user?.user_metadata?.username ?? "";
   const [searchQuery, setSearchQuery] = useState('');
-  const {projects, news, fetchProjects, fetchNews, getImage} = useStore();
+  const {projects, news, getImage} = useStore();
   const [searchResults, setSearchResults] = useState([]);
-  
-  useEffect(() => {
-      const fetchData = async () => {
-        await fetchProjects();
-        await fetchNews();
-      };
-      fetchData();
-    }, []);
 
   const handleSearchChange = (event) => {
     const query = event.target.value.toLowerCase();
