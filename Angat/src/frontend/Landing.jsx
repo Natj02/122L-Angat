@@ -98,19 +98,17 @@ export function Landing() {
           <div className="flex flex-col md:flex-row mt-8 gap-8 justify-center">
             {ongoingUpcomingProjects.length > 0 ? (
               // Display actual projects
-              ongoingUpcomingProjects
-                .slice(0, 4)
-                .map((project) => (
-                  <LandingCard
-                    key={project.projectid}
-                    id={project.projectid}
-                    title={project.name}
-                    date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
-                    img={getImage("projects_news", project.image_filename)}
-                    description={project.description}
-                    rowData={project}
-                  />
-                ))
+              ongoingUpcomingProjects.map((project) => (
+                <LandingCard
+                  key={project.projectid}
+                  id={project.projectid}
+                  title={project.name}
+                  date={`${formatDate(project.start_date)} - ${formatDate(project.end_date)}`}
+                  img={getImage("projects_news", project.image_filename)}
+                  description={project.description}
+                  rowData={project}
+                />
+              ))
             ) : (
               // No upcoming/ongoing projects found
               <div className="text-center text-xl font-semibold text-gray-600">
@@ -129,7 +127,7 @@ export function Landing() {
           <div className="flex flex-col md:flex-row mt-8 gap-8 justify-center">
             {recentProjects.length > 0 ? (
               recentProjects
-                .slice(0, 4)
+                .slice(0, 3)
                 .map((project) => (
                   <LandingCard
                     key={project.projectid}
