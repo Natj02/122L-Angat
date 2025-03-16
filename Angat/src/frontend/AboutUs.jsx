@@ -84,14 +84,14 @@ function AboutUs() {
           </div>
         </div>
         
-        <div className='w-full p-8 md:p-14 bg-base-200 shadow-sm'>
+        {/* <div className='w-full p-8 md:p-14 bg-base-200 shadow-sm'>
           <div className="m-auto w-9/10 md:w-7/10">
             <div className="text-lg text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ullamcorper ipsum. Morbi fermentum consectetur vestibulum. Etiam elementum porttitor mi eu rutrum. Duis ut varius ex, at egestas augue. Aenean dui ligula, mattis a mi eget, egestas dictum velit. Aliquam a arcu nec tortor imperdiet efficitur. Aenean ullamcorper nibh pharetra, hendrerit eros sit amet, venenatis sem. Integer laoreet nulla sem, vel vestibulum justo elementum quis. Suspendisse at molestie est, elementum aliquet est. Aenean enim lectus, maximus quis libero in, sagittis vulputate ante. Nulla pulvinar interdum tortor pulvinar dapibus. Nullam commodo hendrerit luctus. Suspendisse lacinia ligula ultricies tortor mollis maximus. Morbi ultrices lectus sit amet risus pretium, ac dignissim justo molestie.
             </div>
            
           </div>
-        </div>
+        </div> */}
 
         {/* <div className='w-full p-8 md:p-14 bg-secondary shadow-sm'>
           <div className="m-auto w-7/10">
