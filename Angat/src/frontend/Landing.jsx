@@ -97,8 +97,9 @@ export function Landing() {
           </div>
           <div className="flex flex-col md:flex-row mt-8 gap-8 justify-center">
             {ongoingUpcomingProjects.length > 0 ? (
-              // Display actual projects
-              ongoingUpcomingProjects.map((project) => (
+              ongoingUpcomingProjects
+              .slice(0, 4)
+              .map((project) => (
                 <LandingCard
                   key={project.projectid}
                   id={project.projectid}
@@ -131,7 +132,7 @@ export function Landing() {
           <div className="flex flex-col md:flex-row mt-8 gap-8 justify-center">
             {recentProjects.length > 0 ? (
               recentProjects
-                .slice(0, 3)
+                .slice(0, 4)
                 .map((project) => (
                   <LandingCard
                     key={project.projectid}
