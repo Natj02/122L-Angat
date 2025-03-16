@@ -10,7 +10,7 @@ function AboutUs() {
 
   return (
     <> 
-        <div className="flex flex-col lg:flex-row max-w-full">
+        <div className="flex flex-col lg:flex-row">
           <div className="flex absolute left-1/2 -translate-x-1/2 bg-primary text-white p-4 font-bold rounded-4xl mt-4  text-center text-xl">
             Sino nga ba ang Angat Cembo?
           </div>
