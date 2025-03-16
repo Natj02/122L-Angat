@@ -147,8 +147,8 @@ function Header() {
                   onClick={() => setSearchQuery('')}
                   >
                  <div class>
-                  <div className="font-bold text-md">{item.name}</div>
-                  <div className="text-xs">{item.description}</div>
+                  <div className="font-bold text-md text-nowrap truncate">{item.name}</div>
+                  <div className="text-xs truncate max-h-24">{item.description}</div>
                   <div className="text-xs">{item.type}</div>
                  </div>
                 </ Link>
