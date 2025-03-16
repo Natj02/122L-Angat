@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import  Profile  from "./Profile";
 import { useAuth } from '../../helpers/AuthContext'; 
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useStore from "../../helpers/Store";
 
 function Header() {
