@@ -146,7 +146,7 @@ function Header() {
                   state={{ data: item.rowData, img: item.img }}
                   onClick={() => setSearchQuery('')}
                   >
-                 <div class>
+                 <div className="overflow-y-hidden">
                   <div className="font-bold text-md text-nowrap truncate">{item.name}</div>
                   <div className="text-xs truncate max-h-24 overflow-hidden text-ellipsis">{item.description}</div>
                   <div className="text-xs">{item.type}</div>
