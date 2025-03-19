@@ -28,7 +28,7 @@ function AboutUs() {
             </div>
           </div>
           <div
-            class="hero w-full lg:w-1/3 min-h-160 justify-items-start items-end "
+            class="hero  w-full lg:w-1/3 min-h-160 justify-items-start items-end "
             style={{
               backgroundImage: `url(${about1})`,
             }}>
